@@ -1,0 +1,49 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+    box-sizing: border-box;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    padding: 3px 5px;
+}
+
+.menu .title {
+    cursor: pointer;
+}
+
+.menu ul {
+    list-style-type: none;
+    display: none;
+    padding: 10px;
+}
+
+.menu .title::before {
+    content: "▶ ";
+    color: red;
+}
+
+.menu.open ul {
+    display: block;
+}
+
+.menu.open .title::before {
+    content: "▼ ";
+    color: green;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: blueviolet;
+}
+
+.colorred {
+    background-color: red;
+}
