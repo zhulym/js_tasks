@@ -1,4 +1,5 @@
 // //Напишите код, как получить…элемент <div>?   <ul>?  второй <li> (с именем Пит)?
+
 // //for div
 // console.log(document.body.children[0]);
 // console.log(document.body.firstElementChild);
@@ -14,6 +15,8 @@
 // console.log(document.body.children[1].children[1]);
 
 // //=============================================================================
+
+
 
 // //Повесить несколько обработчиков на элемент
 
@@ -40,9 +43,8 @@
 // elem.addEventListener('click', handler3);
 
 
+
 // //===============================================================================
-
-
 // //Добавьте JavaScript к кнопке button, чтобы при нажатии элемент <div id="text"> исчезал.
 
 // let deleteContent = document.getElementById('text');
@@ -60,6 +62,8 @@
 // deleteButt.onclick = () => deleteButt.hidden = true;
 
 
+
+
 // //===============================================================================
 // let menuElem = document.getElementById('sweeties');
 // let titleElem = menuElem.querySelector('.title');
@@ -72,8 +76,6 @@
 
 
 // //===============================================================================
-
-
 // //1, Cделать по клику замену цвета элементу 2, Через вопрос перейти или не перейти по ссылке
 
 // let button = document.querySelector('#changeColor');
@@ -102,5 +104,14 @@
 // }
 // anchor.onclick = noAnchor;
 
-//===========================================================================
 
+
+
+//===========================================================================
+// вывести в консоль событие contextmenu по клику на странице, потом запретить показ меню и вывести в консоль координаты
+
+document.addEventListener('contextmenu', function (event) {
+    console.log('context menu!!!');
+    // event.preventDefault(); // отключение (событие срабатывает, но меню не показывается)
+    console.log(event.clientX, event.clientY);
+})
