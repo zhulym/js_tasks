@@ -14,10 +14,10 @@
 // //for li
 // console.log(document.body.children[1].children[1]);
 
+
+
+
 // //=============================================================================
-
-
-
 // //Повесить несколько обработчиков на элемент
 
 // let elem = document.getElementById('elem');
@@ -55,6 +55,9 @@
 // // hideText.onclick = () => deleteContent.hidden = true;
 // //или
 // hideText.addEventListener('click', () => deleteContent.style.display = 'none');
+
+
+
 // //===============================================================================
 // //Создайте кнопку, которая будет скрывать себя по нажатию.
 // let deleteButt = document.getElementById('hide-yourself');
@@ -107,11 +110,39 @@
 
 
 
-//===========================================================================
-// вывести в консоль событие contextmenu по клику на странице, потом запретить показ меню и вывести в консоль координаты
+// //===========================================================================
+// // вывести в консоль событие contextmenu по клику на странице, потом запретить показ меню и вывести в консоль координаты
 
-document.addEventListener('contextmenu', function (event) {
-    console.log('context menu!!!');
-    // event.preventDefault(); // отключение (событие срабатывает, но меню не показывается)
-    console.log(event.clientX, event.clientY);
-})
+// document.addEventListener('contextmenu', function (event) {
+//     console.log('context menu!!!');
+//     event.preventDefault(); // отключение (событие срабатывает, но меню не показывается)
+//     console.log(event.clientX, event.clientY);
+// });
+
+
+
+// //===========================================================================
+// // Задача сделать чтобы при копировании текста с сайта, при вставке в инпут или другое место на другом сайте
+// // также вставлялся дополнительный текст (например адрес исходного сайта)
+
+// document.addEventListener('copy', function (event) {    // copy событие на выделение
+//     const copyText = document.getSelection().toString();  // getSelection() взять выделение и приводим к строке
+//     event.clipboardData.setData('text/plain', copyText + " Этот текст скопирован с сайта: js.ru");
+//     // clipboardData - обратиться к буферу обмена, setData - установить новые данные, 'text/plain' - указываем тип (простой текст) 
+//     event.preventDefault(); // запрет на обычное копирование (так как мы сделали новую логику)
+// })
+
+
+
+
+// //===========================================================================
+// // Задача сделать чтобы после вырезании текста со страницы он вставлялся в Апперкейсе в другое место
+// document.addEventListener('cut', function (event) {
+//     const cuttinText = document.getSelection();
+//     event.clipboardData.setData('text/plain', cuttinText.toString().toUpperCase());
+//     event.preventDefault();
+// })
+
+
+
+//===========================================================================
