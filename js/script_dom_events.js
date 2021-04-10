@@ -196,21 +196,21 @@
 // });
 
 
-//================================ 'submit' 'change' ===========================================
+// //================================ 'submit' 'change' ===========================================
 
-const submitEventForm = document.querySelector('#submit_event');
-const submitEventInput = document.querySelector('.submit_event_input');
-const submitError = document.querySelector('.error');
+// const submitEventForm = document.querySelector('#submit_event');
+// const submitEventInput = document.querySelector('.submit_event_input');
+// const submitError = document.querySelector('.error');
 
-submitEventForm.addEventListener('submit', function (event) {
-    if (submitEventInput.value == "") {
-        event.preventDefault();
-        submitError.style.color = 'red';
-        submitError.innerHTML = 'Поле не может быть пустым';
-    }
+// submitEventForm.addEventListener('submit', function (event) {
+//     if (submitEventInput.value == "") {
+//         event.preventDefault();
+//         submitError.style.color = 'red';
+//         submitError.innerHTML = 'Поле не может быть пустым';
+//     }
 
-})
+// })
 
-submitEventForm.addEventListener('change', function () {     // change событие срабатывает, в момент изменения инпута или текстареа или т.п
-    submitError.innerHTML = ''; // убираем ошибку
-})
+// submitEventForm.addEventListener('change', function () {     // change событие срабатывает, в момент изменения инпута или текстареа или т.п
+//     submitError.innerHTML = ''; // убираем ошибку
+// })
