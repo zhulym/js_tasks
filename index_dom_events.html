@@ -86,7 +86,25 @@
 	<br>
 	<textarea name="" id="" cols="90" rows="7"></textarea>
 
-	<input type="text"  id="checkBlur">
+	<input type="text" id="checkBlur">
+
+	<br><br>
+
+	<form action="reset.html" method="GET">
+		<input type="text" name='login'>
+		<button class="submit">Отправить</button>
+		<button type="reset">Очистить</button>
+	</form>
+
+
+	<br><br>
+
+	<form id='submit_event' action="index.html" method="post">
+		<input class='submit_event_input' type="text" name='login'>
+
+		<button class="submit_event_button">Отправить</button>
+		<div class="error"></div>
+	</form>
 
 	<script src="./js/script_dom_events.js"></script>
 </body>

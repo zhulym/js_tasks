@@ -1,4 +1,4 @@
-// //Напишите код, как получить…элемент <div>?   <ul>?  второй <li> (с именем Пит)?
+// //Написать код, как получить…элемент <div>?   <ul>?  второй <li> (с именем Пит)?
 
 // //for div
 // console.log(document.body.children[0]);
@@ -163,21 +163,54 @@
 
 
 
-//================================ 'focus'  'blur' ===========================================
-// вывести в консоль событие focus и blur (происходит в момент когда юзер убрал фокус с инпута или textarea и т.д)
-// применить стили к инпуту и удалить стиль
-// focus - в момент входа в поле ввода
+// //================================ 'focus'  'blur' ===========================================
+// // вывести в консоль событие focus и blur (происходит в момент когда юзер убрал фокус с инпута или textarea и т.д)
+// // применить стили к инпуту и удалить стиль
+// // focus - в момент входа в поле ввода
 
-const inputBlur = document.querySelector('#checkBlur');
+// const inputBlur = document.querySelector('#checkBlur');
 
-inputBlur.addEventListener('focus', function (event) {
-    console.log('Фокус и произошло событие')
-    const stylesForInput = "outline: 5px green; background: yellow;";
-    event.target.style.cssText = stylesForInput;
+// inputBlur.addEventListener('focus', function (event) {
+//     console.log('Фокус и произошло событие')
+//     const stylesForInput = "outline: 5px green; background: yellow;";
+//     event.target.style.cssText = stylesForInput;
+// })
+
+// inputBlur.addEventListener('blur', function (event) {
+//     console.log('Фокус убрался, и произошло событие');
+//     event.target.style.background = "white";
+//     event.target.style.removeProperty('outline');
+// })
+
+
+
+// //================================ 'reset' ===========================================
+// // Есть форма, добавить инпут и две кнопки отправить-очистить, с событием reset на вторую кнопку
+
+// const formEl = document.querySelector('form');
+
+// formEl.addEventListener('reset', function (event) {
+//     if (!confirm('Вы уверены что хотите очистить поле?')) {
+//         event.preventDefault();
+//     }
+// });
+
+
+//================================ 'submit' 'change' ===========================================
+
+const submitEventForm = document.querySelector('#submit_event');
+const submitEventInput = document.querySelector('.submit_event_input');
+const submitError = document.querySelector('.error');
+
+submitEventForm.addEventListener('submit', function (event) {
+    if (submitEventInput.value == "") {
+        event.preventDefault();
+        submitError.style.color = 'red';
+        submitError.innerHTML = 'Поле не может быть пустым';
+    }
+
 })
 
-inputBlur.addEventListener('blur', function (event) {
-    console.log('Фокус убрался, и произошло событие');
-    event.target.style.background = "white";
-    event.target.style.removeProperty('outline');
+submitEventForm.addEventListener('change', function () {     // change событие срабатывает, в момент изменения инпута или текстареа или т.п
+    submitError.innerHTML = ''; // убираем ошибку
 })
