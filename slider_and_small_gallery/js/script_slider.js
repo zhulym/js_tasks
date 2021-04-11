@@ -92,3 +92,27 @@ let images = {
     }
 
 }
+
+
+
+/*====================================  GALLERY  ================================================*/
+
+let galleryImages = document.querySelectorAll(".gallery-item");
+
+function init() {
+    galleryImages.forEach((item) => item.addEventListener('click', changeBigPicture));
+}
+
+function changeBigPicture(event) {
+    let containerForImage = document.getElementById("big_picture");
+
+    containerForImage.innerHTML = "";
+
+    let imageNameParts = event.target.id.split("_");
+    let src = "images/gallery/big/img" + imageNameParts[1] + ".jpg";
+    let imageDomElement = document.createElement("img");
+    imageDomElement.src = src;
+    containerForImage.appendChild(imageDomElement);
+}
+
+window.onload = init;
