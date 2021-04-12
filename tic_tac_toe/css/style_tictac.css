@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+#container-game {
+    width: 450px;
+    margin: 100px auto;
+}
+
+#container-game td {
+    width: 150px;
+    height: 150px;
+    border: 2px solid black;
+    text-align: center;
+}
