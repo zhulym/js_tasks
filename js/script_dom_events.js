@@ -284,9 +284,22 @@ let button = document.querySelector('.show_modal');
 let closeButton = document.querySelector('.close_modal');
 
 button.addEventListener('click', () => {
-    container.style.display = 'block';
+
+    container.classList.add('animate__animated', 'animate__fadeInLeft');
+    container.classList.remove('animate__fadeOutRight', 'hidden');
+
+    // container.style.display = 'block';
+
+
 })
 
+
+
 closeButton.addEventListener('click', () => {
-    container.style.display = 'none';
+
+    container.classList.remove('animate__fadeInLeft');
+    container.classList.add('animate__fadeOutRight');
+    setTimeout(() => {
+        container.classList.add('hidden');
+    }, 1000)
 })
