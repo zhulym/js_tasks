@@ -145,3 +145,5 @@ let ticTakToe = {
 
 // Запускаем игру при полной загрузке страницы.
 window.addEventListener('load', ticTakToe.init());
+
+

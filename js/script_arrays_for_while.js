@@ -224,27 +224,28 @@
 // let filtreImage = products.filter(item => 'photos' in item && item.photos.length > 0);
 // console.log(filtreImage);
 
-/* ==========================  HW 6  ==================================*/
-// Нарисовать горку с помощью console.log, как показано на рисунке,
-// только у вашей горки должно быть 10 рядов, а не 5:
-// x
-// xx
-// xxx
-// xxxx
-// xxxxx
+// /* ==========================  HW 6  ==================================*/
+// // Нарисовать горку с помощью console.log, как показано на рисунке,
+// // только у вашей горки должно быть 10 рядов, а не 5:
+// // x
+// // xx
+// // xxx
+// // xxxx
+// // xxxxx
 
-let row = "";
+// let row = "";
 
-function drawX(num) {
-    while (num > 0) {
-        row += "x";
-        console.log(row);
-        break;
-    }
-    if (num === 0) {
-        return;
-    }
-    drawX(num - 1);
-}
+// function drawX(num) {
+//     while (num > 0) {
+//         row += "x";
+//         console.log(row);
+//         break;
+//     }
+//     if (num === 0) {
+//         return;
+//     }
+//     drawX(num - 1);
+// }
 
-drawX(10);
+// drawX(10);
+

@@ -17,7 +17,7 @@
 
 
 
-// //=============================================================================
+// /*===================================================================================================================*/
 // //Повесить несколько обработчиков на элемент
 
 // let elem = document.getElementById('elem');
@@ -44,7 +44,7 @@
 
 
 
-// //===============================================================================
+// /*===================================================================================================================*/
 // //Добавьте JavaScript к кнопке button, чтобы при нажатии элемент <div id="text"> исчезал.
 
 // let deleteContent = document.getElementById('text');
@@ -58,7 +58,7 @@
 
 
 
-// //===============================================================================
+// /*===================================================================================================================*/
 // //Создайте кнопку, которая будет скрывать себя по нажатию.
 // let deleteButt = document.getElementById('hide-yourself');
 
@@ -67,7 +67,7 @@
 
 
 
-// //===============================================================================
+// /*===================================================================================================================*/
 // let menuElem = document.getElementById('sweeties');
 // let titleElem = menuElem.querySelector('.title');
 
@@ -78,7 +78,7 @@
 
 
 
-// //===============================================================================
+// /*===================================================================================================================*/
 // //1, Cделать по клику замену цвета элементу 2, Через вопрос перейти или не перейти по ссылке
 
 // let button = document.querySelector('#changeColor');
@@ -197,7 +197,6 @@
 
 
 // //================================ 'submit' 'change' ===========================================
-
 // const submitEventForm = document.querySelector('#submit_event');
 // const submitEventInput = document.querySelector('.submit_event_input');
 // const submitError = document.querySelector('.error');
@@ -214,3 +213,80 @@
 // submitEventForm.addEventListener('change', function () {     // change событие срабатывает, в момент изменения инпута или текстареа или т.п
 //     submitError.innerHTML = ''; // убираем ошибку
 // })
+
+
+
+// /*===================================================================================================================*/
+// //Задача. Изменение текста в инпуте
+// //Задача. Повторите поведение кнопки по нажатию на нее (она меняет текст в инпуте):
+
+
+// let submitEvent = document.querySelector('.submit_event_button');
+// let submitEventInput = document.querySelector('.submit_event_input');
+
+// submitEvent.onclick = changeValue;
+// function changeValue() {
+//     submitEventInput.value = '???';
+// }
+
+
+
+// // ================================ HW DOM 1 ===========================================//
+// // При клике на элемент его цыет долже меняться
+
+// let containerBox = document.querySelector('.contForHw');
+// let elementBox = document.querySelectorAll('.elementClick');
+
+
+// containerBox.addEventListener('click', (event) => {
+//     elementBox.forEach((item) => {
+//         item.classList.remove('color_for_box');
+//     })
+//     event.target.classList.add('color_for_box');
+// });
+
+
+
+
+// // ================================ HW DOM 2 ===========================================//
+// // Сделать несколько карточек товара c кнопкой (подробнее) подробнее, по клику вместо картинки появляется описание
+// // текст кнопки меняется на (назад) 
+
+//Вариан №1
+// let buttonElem = document.querySelectorAll('.button-item');
+// let descriptionCard = document.querySelectorAll('.item-descript');
+// let imageCard = document.querySelectorAll('.item-imgage');
+// let container = document.querySelector('container-cards');
+
+// buttonElem.forEach((item) => {
+//     item.addEventListener('click', (event) => {
+//         if (event.target.innerText === 'Подробнее') {
+//             event.target.parentNode.children[2].style.display = 'none';
+//             event.target.parentNode.children[1].style.display = 'block';
+//             event.target.innerText = 'Назад';
+//         } else {
+//             event.target.parentNode.children[2].style.display = 'block';
+//             event.target.parentNode.children[1].style.display = 'none';
+//             event.target.innerText = 'Подробнее';
+//         }
+//     })
+// })
+
+
+
+
+/*================================================= HW DOM 3 ========================================================*/
+// Сделайте кнопку и модальное (появляющееся и исчезающее) окно, по клику окно появляется и исчезает
+
+let container = document.querySelector('.cont_for_modal');
+let modalText = document.querySelector('.modal_text');
+let button = document.querySelector('.show_modal');
+let closeButton = document.querySelector('.close_modal');
+
+button.addEventListener('click', () => {
+    container.style.display = 'block';
+})
+
+closeButton.addEventListener('click', () => {
+    container.style.display = 'none';
+})

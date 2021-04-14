@@ -3,6 +3,7 @@ html, body {
     padding: 0;
     background-color: #F5F5F5;
     box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 table {
@@ -46,4 +47,78 @@ td {
 
 .colorred {
     background-color: red;
+}
+
+.elementClick {
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    margin: 2px;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+}
+
+.contForHw {
+    display: flex;
+}
+
+.color_for_box {
+    background-color: blue;
+}
+
+/* hw dom 2 */
+
+.container-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.item-descript {
+    width: 170px;
+}
+
+.item-name {
+    background-color: cornflowerblue;
+    font-size: 24px;
+    width: 170px;
+    margin-bottom: 10px;
+}
+
+.item-descript {
+    display: none;
+}
+
+/* hw dom 3 */
+
+.cont_for_modal {
+    position: fixed;
+    top: 15%;
+    left: calc(50% - 260px);
+    width: 500px;
+    padding: 30px;
+    box-shadow: 5px 5px 10px black;
+    margin: 0 auto;
+    user-select: none;
+    display: none;
+    z-index: 10;
+}
+
+.close_modal {
+    position: relative;
+    left: 493px;
+    top: -78px;
+    border-radius: 50%;
+    background-color: cyan;
+    padding: 0px 6px 3px 6px;
+    cursor: pointer;
+    font-size: 24px;
+    user-select: none;
+    transition: 0.5s ease;
+}
+
+.close_modal:hover {
+    background-color: rgb(0, 204, 255);
 }
