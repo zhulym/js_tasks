@@ -275,31 +275,28 @@
 
 
 
-/*================================================= HW DOM 3 ========================================================*/
-// Сделайте кнопку и модальное (появляющееся и исчезающее) окно, по клику окно появляется и исчезает
+// /*================================================= HW DOM 3 ========================================================*/
+// // Сделайте кнопку и модальное (появляющееся и исчезающее) окно, по клику окно появляется и исчезает
 
-let container = document.querySelector('.cont_for_modal');
-let modalText = document.querySelector('.modal_text');
-let button = document.querySelector('.show_modal');
-let closeButton = document.querySelector('.close_modal');
+// let container = document.querySelector('.cont_for_modal');
+// let modalText = document.querySelector('.modal_text');
+// let button = document.querySelector('.show_modal');
+// let closeButton = document.querySelector('.close_modal');
 
-button.addEventListener('click', () => {
+// button.addEventListener('click', () => {
+//     container.classList.add('animate__animated', 'animate__fadeInLeft');
+//     container.classList.remove('animate__fadeOutRight', 'hidden');
+// })
 
-    container.classList.add('animate__animated', 'animate__fadeInLeft');
-    container.classList.remove('animate__fadeOutRight', 'hidden');
+// closeButton.addEventListener('click', () => {
+//     container.classList.remove('animate__fadeInLeft');
+//     container.classList.add('animate__fadeOutRight');
+//     setTimeout(() => {
+//         container.classList.add('hidden');
+//     }, 1000)
+// })
 
-    // container.style.display = 'block';
+
+/*================================================= HW DOM 5 ======================================================*/
 
 
-})
-
-
-
-closeButton.addEventListener('click', () => {
-
-    container.classList.remove('animate__fadeInLeft');
-    container.classList.add('animate__fadeOutRight');
-    setTimeout(() => {
-        container.classList.add('hidden');
-    }, 1000)
-})
