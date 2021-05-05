@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML/CSS/JS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js">
+	</script>
+</head>
+
+<body>
+	<div class="container">
+		<form action="" method="post">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input id='name' class="form-control" type="text" />
+				<div class="invalid-feedback nameError"></div>
+			</div>
+			<div class="form-group">
+				<label for="phone">Phone</label>
+				<input id='phone' class="form-control" type="text" />
+				<div class="invalid-feedback phoneError"></div>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input id='password' class="form-control" type="password" />
+				<div class="invalid-feedback passwordError"></div>
+			</div>
+			<div class="form-group">
+				<label for="pass-repeat">Password</label>
+				<input id='pass-repeat' class="form-control" type="password" />
+			</div>
+			<button class="btn btn-primary">Отправить</button>
+		</form>
+	</div>
+
+
+	<script src="./js/script.js"></script>
+</body>
+
+</html>
