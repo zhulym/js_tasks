@@ -15,11 +15,8 @@ let validators = {
     }
 }
 
-
 let name = {
-
     name: 'Name',
-
     rules: {
         min: 1,
         max: 50
@@ -52,14 +49,11 @@ let name = {
         let field = this.getField();
         field.classList.remove('is-invalid');
         field.classList.add('is-valid');
-
     }
 };
 
 let phone = {
-
     name: 'Phone',
-
     rules: {
         type: "number",
         typeRu: "число",
@@ -94,7 +88,6 @@ let phone = {
         let field = this.getField();
         field.classList.remove('is-invalid');
         field.classList.add('is-valid');
-
     }
 };
 
@@ -124,7 +117,6 @@ let passwords = {
     showError() {
         this.getFieldPass().classList.add('is-invalid');
         this.getFieldPassRepeat().classList.add('is-invalid');
-
         document.querySelector('.passwordError').innerHTML = 'Пароли должны совпадать, поле ПАРОЛЬ не может быть пустым';
     },
 
@@ -137,12 +129,4 @@ let passwords = {
         fieldPassRepeat.classList.remove('is-invalid');
         fieldPassRepeat.classList.add('is-valid');
     }
-
 }
-
-
-
-
-
-
-
