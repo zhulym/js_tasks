@@ -16,12 +16,12 @@
 				<h1 class="form__title">Отправка данных</h1>
 				<div class="form__item">
 					<label for="formName" class="form__label">Имя*:</label>
-					<input id="formName" type="text" class="form__input" name="name" autocomplete="off" />
+					<input id="formName" type="text" class="form__input _req" name="name" autocomplete="off" />
 				</div>
 
 				<div class="form__item">
 					<label for="formEmail" class="form__label">Почта*:</label>
-					<input id="formEmail" type="text" class="form__input" name="еmail" />
+					<input id="formEmail" type="text" class="form__input _req _email" name="еmail" />
 				</div>
 
 				<div class="form__item">
@@ -64,7 +64,8 @@
 
 				<div class="form__item">
 					<div class="checkbox">
-						<input type="checkbox" id="formAgreement" name="agreement" class="checkbox__input" checked />
+						<input type="checkbox" id="formAgreement" name="agreement" class="checkbox__input _req"
+							checked />
 						<label for="formAgreement" class="checkbox__label"><span>Я даю свое согласие на обработку
 								персональных данных в соответствии с <a href="#">Условиями*</a></span></label>
 					</div>

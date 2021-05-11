@@ -60,6 +60,10 @@ li {
     transition: all 0.5s ease 0s;
 }
 
+.form__input._error {
+    box-shadow: 0 0 15px #ff0000;
+}
+
 .form__input:focus {
     box-shadow: 0 0 15px #b8b8b8;
 }
@@ -91,8 +95,6 @@ textarea.form__input {
     font-size: 15px;
     padding: 0 10px;
 }
-
-.file {}
 
 .file__item {
     position: relative;
@@ -133,9 +135,13 @@ textarea.form__input {
     max-width: 100%;
 }
 
-.checkbox {}
+.checkbox._error {
+    box-shadow: 0 0 15px #ff0000;
+}
 
-.checkbox__input {}
+.checkbox__input._error {
+    box-shadow: 0 0 15px #ff0000;
+}
 
 .checkbox__label a {
     color: rgb(0, 141, 19);
