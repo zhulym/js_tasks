@@ -12,11 +12,11 @@
 <body>
 	<div class="wrapper">
 		<div class="form">
-			<form action="#" id="form" class="form__body">
+			<form action="#" id="form" class="form__body" name="myForm">
 				<h1 class="form__title">Отправка данных</h1>
 				<div class="form__item">
 					<label for="formName" class="form__label">Имя*:</label>
-					<input id="formName" type="text" class="form__input" name="name" />
+					<input id="formName" type="text" class="form__input" name="name" autocomplete="off" />
 				</div>
 
 				<div class="form__item">
@@ -26,12 +26,14 @@
 
 				<div class="form__item">
 					<h3 class="form__age">Укажите ваш возраст:</h3>
-
-					<label for="forAgeYoung" class="form__label">От 18 до 25:</label>
-					<input id="forAgeYoung" type="radio" class="form__input" name="age" value="young" checked />
-
-					<label for="forAgeOld" class="form__label">От 26 до 65:</label>
-					<input id="forAgeOld" type="radio" class="form__input" name="age" value="old" />
+					<div class="form__radio-item">
+						<input id="forAgeYoung" type="radio" class="radio__input" name="age" value="young" checked />
+						<label for="forAgeYoung" class="form__label radio">От 18 до 25:</label>
+					</div>
+					<div class="form__radio-item">
+						<input id="forAgeOld" type="radio" class="radio__input" name="age" value="old" />
+						<label for="forAgeOld" class="form__label radio">От 26 до 65:</label>
+					</div>
 				</div>
 
 				<div class="form__item">
@@ -39,8 +41,8 @@
 					<textarea name="message" id="formMessage" class="form__input"></textarea>
 				</div>
 				<div class="form__item">
-					<div class="form__label">Возраст:</div>
-					<select name="age" class="select">
+					<div class="form__label">Какие-то пункты:</div>
+					<select name="select" class="select">
 						<option value="1" selected="selected">Пункт №1</option>
 						<option value="2">Пункт №2</option>
 						<option value="3">Пункт №3</option>
@@ -53,7 +55,7 @@
 					<div class="file">
 						<div class="file__item">
 							<input id="formImage" accept=".jpg, .png, .gif" type="file" name="image"
-								class="form__input" />
+								class="file__input" />
 							<div class="file__button">Выбрать</div>
 						</div>
 						<div class="file__preview"></div>
@@ -64,7 +66,7 @@
 					<div class="checkbox">
 						<input type="checkbox" id="formAgreement" name="agreement" class="checkbox__input" checked />
 						<label for="formAgreement" class="checkbox__label"><span>Я даю свое согласие на обработку
-								персональных данных в соответствии с Условием*</span></label>
+								персональных данных в соответствии с <a href="#">Условиями*</a></span></label>
 					</div>
 				</div>
 
