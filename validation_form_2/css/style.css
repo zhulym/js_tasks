@@ -35,6 +35,10 @@ li {
     outline: none;
 }
 
+.form__body {
+    position: relative;
+}
+
 .form__title {
     font-size: 28px;
     font-weight: 700;
