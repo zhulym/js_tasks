@@ -1,7 +1,6 @@
 "use strict"
 
 document.addEventListener('DOMContentLoaded', function () {
-    debugger;
     const form = document.forms['myForm'];
     form.addEventListener('submit', formSend);
 
@@ -14,21 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
         fromData.append('image', formImage.files[0]);
 
         if (error === 0) {
-            debugger;
-            let response = await fetch('sendmail.php', {
-                method: 'POST',
-                body: formData
-            });
-
-            if (response.ok) {
-                let result = await response.json();
-                alert(result.message);
-                formPreview.innerHTML = '';
-                form.reset();
-            } else {
-                alert('Ошибка');;
-            }
-
+            formPreview.innerHTML = '';
+            form.reset();
         } else {
             alert('Заполните обязательные поля!');
         }
@@ -64,9 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function emailTest(input) {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
     }
-
-
-
 
     const formImage = document.getElementById('formImage');
     const formPreview = document.getElementById('formPreview');
