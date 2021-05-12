@@ -96,10 +96,6 @@ textarea.form__input {
     padding: 0 10px;
 }
 
-.file {
-    display: flex;
-}
-
 .file__item {
     position: relative;
 }
