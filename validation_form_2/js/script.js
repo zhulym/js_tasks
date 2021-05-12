@@ -1,7 +1,8 @@
 "use strict"
 
-document.addEventListener('DomContentLoader', function () {
-    const form = document.forms('myForm');
+document.addEventListener('DOMContentLoaded', function () {
+    debugger;
+    const form = document.forms['myForm'];
     form.addEventListener('submit', formSend);
 
     async function formSend(e) {
@@ -18,7 +19,7 @@ document.addEventListener('DomContentLoader', function () {
 
     function formValidate(form) {
         let error = 0;
-        let formReq = document.querySelector('._req');
+        let formReq = document.querySelectorAll('._req');
 
         formReq.forEach((item) => {
             let input = item;
@@ -56,5 +57,37 @@ document.addEventListener('DomContentLoader', function () {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
     }
 
+    const formImage = document.getElementById('formImage');
+    const formPreview = document.getElementById('formPreview');
 
+    formImage.addEventListener('change', () => {
+        uploadFile(formImage.files[0]);
+    })
+
+    function uploadFile(file) {
+        if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
+            alert('Разрешены только изображения!');
+            formImage.value = '';
+            return;
+        }
+
+        if (file.size > 2 * 1024 * 1024) {
+            alert('Файл должен быть не более 2МБ!');
+            return;
+        }
+
+        let reader = new FileReader();
+
+        reader.onload = function (event) {
+            formPreview.innerHTML = `<img src="${event.target.result}">`;
+        };
+
+        reader.onerror = function (event) {
+            alert('Ошибка');
+        };
+
+        reader.readAsDataURL(file);
+
+
+    }
 })
