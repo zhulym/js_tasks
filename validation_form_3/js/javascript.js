@@ -70,6 +70,9 @@ form.addEventListener('submit', (event) => {
         inputValues[input.name] = input.value;
     });
 
+    let fromData = new FormData(form);
+    fromData.append('image', formImage.files[0]);
+
     if (inputErrors.length && countOfChecked === 0) {
         addClassError();
         return;
@@ -87,6 +90,8 @@ form.addEventListener('submit', (event) => {
                 console.log(json);
             });
     }
+
+    formPreview.innerHTML = '';
     formImage.nextElementSibling.innerHTML = '';
     form.reset();
 });
