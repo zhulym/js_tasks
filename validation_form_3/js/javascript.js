@@ -63,7 +63,6 @@ form.addEventListener('submit', (event) => {
 
     inputs.forEach((input) => {
         const isValid = validateFormControl(input);
-
         if (!isValid) {
             inputErrors.push(input);
             return;
@@ -74,20 +73,22 @@ form.addEventListener('submit', (event) => {
     if (inputErrors.length && countOfChecked === 0) {
         addClassError();
         return;
+    } else {
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: JSON.stringify(inputValues),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                console.log('response');
+                console.log(json);
+            });
     }
-
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        body: JSON.stringify(inputValues),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    })
-        .then((response) => response.json())
-        .then((json) => {
-            console.log('response');
-            console.log(json);
-        });
+    formImage.nextElementSibling.innerHTML = '';
+    form.reset();
 });
 
 /*=============== Validation for submit ================*/
