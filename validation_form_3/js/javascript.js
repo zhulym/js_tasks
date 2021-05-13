@@ -54,7 +54,7 @@ function validateFormControl(event) {
     }
 };
 
-/*=============== Validation before submit ================*/
+/*=============== Validation before submit =================*/
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
