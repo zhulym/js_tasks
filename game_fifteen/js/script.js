@@ -50,7 +50,7 @@ function moveElem(event) {
     }
 
 
-    let checkElems = function () {
+    function checkElems() {
         for (let i = 0; i < elements.length - 2; i++) {
             if (elements[i].innerHTML.slice(-1) !== elements[i].id.slice(-1)) {
                 return false;
@@ -58,8 +58,6 @@ function moveElem(event) {
             }
         }
     }
-
-    checkElems();
 
     if (checkElems() === undefined && elements[15].innerHTML === '') {
         elements.forEach((item) => {
