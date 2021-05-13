@@ -1,6 +1,7 @@
 const field = document.querySelector('.field');
 const elements = document.querySelectorAll('.elem');
 const counterContainer = document.querySelector('#tour');
+const closeButton = document.querySelector('.close');
 let selectedElem = '';
 let counter = 1;
 
@@ -49,7 +50,6 @@ function moveElem(event) {
         }
     }
 
-
     function checkElems() {
         for (let i = 0; i < elements.length - 2; i++) {
             if (elements[i].innerHTML.slice(-1) !== elements[i].id.slice(-1)) {
@@ -68,7 +68,6 @@ function moveElem(event) {
         document.querySelector('.text').innerHTML = `Победа на ${counter - 1} ходу! Для создания новой игры перезагрузите страницу`;
     }
 
-    const closeButton = document.querySelector('.close');
     closeButton.addEventListener('click', closeWinMes);
     function closeWinMes() {
         document.querySelector('.win-message').style.top = '-100%';
