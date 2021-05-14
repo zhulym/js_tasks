@@ -252,30 +252,27 @@
 /* ==========================  HW 7 some tasks for training ==================================*/
 //  // 1. Преобразовать строку в массив слов
 
-//  const str = 'раз два три четыре пять';
-//  let arr = str.split(' ');
-//  console.log(arr);
+// const str = 'раз два три четыре пять';
+// const arr = str.split(' ');
+// console.log(arr);
 
 
 
 // // 2. Сделать первую букву строки прописной
 
-// let str = "string not starting with capital";
-// let arr = str.split(' ');
-// for (let i = 0; i < arr.length; i++) {
-//     arr[i] = arr[i].replace(arr[i][0], arr[i][0].toUpperCase());
-// }
-// let newStr = arr.join(' ');
+// const str = "string not starting with capital";
+// const arr = str.split(' ');
+// arr[0] = arr[0].replace(arr[0][0], arr[0][0].toUpperCase());
+// const newStr = arr.join(' ');
 // console.log(newStr);
 
 
 
 // // 3. Сравните строки без учёта регистра
 
-// 'string', 'StRiNg'
-// let firstStr = 'string';
-// let secondStr = 'StRiNg';
-// let trueOrFalse = firstStr.toLowerCase() === secondStr.toLowerCase();
+// const firstStr = 'string';
+// const secondStr = 'StRiNg';
+// const trueOrFalse = firstStr.toLowerCase() === secondStr.toLowerCase();
 // console.log(trueOrFalse);
 
 
@@ -295,9 +292,43 @@
 
 
 
-// 5. Удалить повторяющиеся элементы массива
-const arr = ["php", "php", "css", "css", "script", "script", "html", "html", "java"];
+// // 5. Удалить повторяющиеся элементы массива
+// const array = ["php", "php", "css", "css", "script", "script", "html", "html", "java"];
+// const newArr = array.filter((el, i, arr) => arr.indexOf(el) === i);
+// console.log(newArr);
 
-const newArr = arr.filter((el) => {
-    el
-})
+// // 5. (Вар 2) Удалить повторяющиеся элементы массива 
+
+// let array = ["php", "php", "css", "css", "script", "script", "html", "html", "java"];
+// const newArrUniq = new Set(array);
+// array = [...newArrUniq];
+// console.log(array);
+
+// // 6. Найдите элемент в массиве который будет без остатка делиться на 2
+// const array = [0, 1, 2, 3, 5, 7];
+// const newArr = array.filter(el => el % 2 === 0 && el !== 0);
+// console.log(newArr);
+
+
+
+// // 7. Сумма элементов двух массивов
+// const arr1 = [1, 2, 3, 4, 5];
+// const arr2 = [4, 5, 6];
+
+// const newArr = arr1.concat(arr2);
+// const sum = newArr.reduce((prevVal, curVal) => {
+//     return prevVal + curVal;
+// });
+// console.log(sum);
+
+
+
+// 8. Разница между двумя массивами
+// Напишите функцию union, которая возвращает массив, содержащий все элементы arr1, которые не находятся в arr2
+let arr1 = [1, 2, 'a'];
+let arr2 = [1, 2, 3, 4, 'b'];
+
+function union() {
+
+}
+
