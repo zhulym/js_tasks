@@ -336,6 +336,85 @@
 
 
 
-// 9. Сортировка массива по убыванию
+// // 9. Сортировка массива по убыванию
+// const numbers = [3, 8, 7, 6, 5, -4, 3, 2, 1];
+// const newArr = numbers.sort((a, b) => b - a);
+// console.log(newArr);
 
-const numbers = [3, 8, 7, 6, 5, -4, 3, 2, 1];
+
+
+// // 10. преобразуйте массив к виду  [1, 2, 3]
+// const arr = [{ id: 1 }, { id: 2, name: 'John' }, { id: 3 }];
+// const newArr = arr.map((el) => el.id);
+// console.log(newArr);
+
+
+// // 11. Напишите функцию findLongestWord(str), которая принимает строку 
+// // в качестве параметра и находит самое длинное слово в строке
+
+// function findLongestWord(str) {
+//     let arr = str.split(' ');
+//     let longest = arr.reduce((firstEl, nextEl) => (firstEl.length > nextEl.length) ? firstEl : nextEl);
+//     return longest;
+// }
+// console.log(findLongestWord('str js react'));
+
+
+// // 12. Напишите функцию detectDataType(value), которая принимает аргумент и возвращает тип
+// function detectDataType(value) {
+//     return typeof value;
+// }
+// console.log(detectDataType(7));
+
+
+
+// // 13. Напишете метод который преобразует число 2500 в валюту в зависимости 
+// // от параметра yourMethod('en-US', 'USD', 2500) =>  $2,500.00. 
+// //  yourMethod('de-DE', 'EUR', 2500) => 2.500,00 €
+
+
+// function yourMethod(locales, currency, amount) {
+//     return new Intl.NumberFormat(locales, { style: 'currency', currency: currency }).format(amount);
+// }
+// console.log(yourMethod('en-US', 'USD', 2500));
+// console.log(yourMethod('de-DE', 'EUR', 2500));
+
+// // 14. Узнать количество дней в месяце
+// // Напишите функцию JavaScript, чтобы получить количество дней в месяце.
+// // Пример ввода:
+// // console.log(getDaysInMonth(5, 2021));
+// // Вывод:
+// // 31
+
+// function getDaysInMonth(setMonth, setYear) {
+//     const date = new Date(setYear, setMonth, 0).getDate();
+//     return date;
+// }
+// console.log(getDaysInMonth(5, 2021));
+
+
+// // 15. Сравнение двух дат
+// // Напишите функцию для сравнения дат (т.е. больше, меньше или равно)
+
+// function compareDates(firstDate, secondDate) {
+//     if (new Date(firstDate) > new Date(secondDate)) {
+//         return `Дата ${firstDate} более поздняя!`;
+//     } else if (new Date(firstDate) < new Date(secondDate)) {
+//         return `Дата ${secondDate} более поздняя!`;
+//     } else {
+//         return `Даты равны!`;
+//     }
+// }
+// console.log(compareDates('01 / 01 / 1990', '01 / 01 / 2021'));
+
+
+
+// // 16. Разница между двумя датами в днях
+// // Напишите функцию JavaScript, чтобы узнать разницу между двумя датами в днях.
+// // Пример ввода:   console.log(difference('04/02/2021', '11/04/2021'));         Вывод:216
+
+// function daysBetweenDates(firstDate, secondDate) {
+//     const result = (Math.abs(new Date(firstDate) - new Date(secondDate))) / 8.64e+7;
+//     return result;
+// }
+// console.log(daysBetweenDates('04/02/2021', '11/04/2021'));
