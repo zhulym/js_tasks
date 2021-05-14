@@ -249,3 +249,55 @@
 
 // drawX(10);
 
+/* ==========================  HW 7 some tasks for training ==================================*/
+//  // 1. Преобразовать строку в массив слов
+
+//  const str = 'раз два три четыре пять';
+//  let arr = str.split(' ');
+//  console.log(arr);
+
+
+
+// // 2. Сделать первую букву строки прописной
+
+// let str = "string not starting with capital";
+// let arr = str.split(' ');
+// for (let i = 0; i < arr.length; i++) {
+//     arr[i] = arr[i].replace(arr[i][0], arr[i][0].toUpperCase());
+// }
+// let newStr = arr.join(' ');
+// console.log(newStr);
+
+
+
+// // 3. Сравните строки без учёта регистра
+
+// 'string', 'StRiNg'
+// let firstStr = 'string';
+// let secondStr = 'StRiNg';
+// let trueOrFalse = firstStr.toLowerCase() === secondStr.toLowerCase();
+// console.log(trueOrFalse);
+
+
+
+// // 4. Удалить лишние пробелы из строки
+
+// let str = "       Max is a good boy    ";
+// let arr = str.split(' ');
+// let newArr = [];
+// arr.forEach((el) => {
+//     if (el !== '') {
+//         newArr.push(el);
+//     }
+// });
+// str = newArr.join(' ');
+// console.log(str);
+
+
+
+// 5. Удалить повторяющиеся элементы массива
+const arr = ["php", "php", "css", "css", "script", "script", "html", "html", "java"];
+
+const newArr = arr.filter((el) => {
+    el
+})
