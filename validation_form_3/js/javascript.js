@@ -96,7 +96,7 @@ form.addEventListener('submit', (event) => {
     form.reset();
 });
 
-/*=============== Validation for submit ================*/
+/*=============== Validation for image ================*/
 
 formImage.addEventListener('change', () => {
     loadingFile(formImage.files[0]);
