@@ -55,23 +55,30 @@
 // checkAnswer();
 
 /*=======================  PROMISE =============================*/
-// 1. Сделайте промис, внутри которого будет задержка setTimeout в 3 секунды, 
-// после которой промис должен зарезолвится (то есть выполнится успешно).
+// // 1. Сделайте промис, внутри которого будет задержка setTimeout в 3 секунды, 
+// // после которой промис должен зарезолвится (то есть выполнится успешно).
 
-let promise = new Promise(function (resolve, reject) {
-    setTimeout(() => resolve(alert("done")), 3000);
-});
+// let promise = new Promise(function (resolve, reject) {
+//     setTimeout(() => resolve(alert("done")), 3000);
+// });
 
-// 2. Сделайте промис, внутри которого будет задержка setTimeout в 3 секунды, 
-// после которой промис должен зареджектится (то есть выполнится с ошибкой).
+// // 2. Сделайте промис, внутри которого будет задержка setTimeout в 3 секунды, 
+// // после которой промис должен зареджектится (то есть выполнится с ошибкой).
 
-let promiseEr = new Promise(function (resolve, reject) {
-    setTimeout(() => reject(new Error("Whoops!")), 1000);
-});
-
-
+// let promiseEr = new Promise(function (resolve, reject) {
+//     setTimeout(() => reject(new Error("Whoops!")), 1000);
+// });
 
 
+// // 3. Встроенная функция setTimeout использует колбэк-функции. Создайте альтернативу, 
+// // использующую промисы. Функция delay(ms) должна возвращать промис, который перейдёт 
+// // в состояние «выполнен» через ms миллисекунд, так чтобы мы могли добавить к нему .then:
+
+// function delay(ms) {
+//     return new Promise(resolve => setTimeout(resolve, ms));
+// }
+
+// delay(3000).then(() => alert('Сообщение появилось через три секунды'));
 
 
 
