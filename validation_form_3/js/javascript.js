@@ -56,7 +56,7 @@ function validateFormControl(event) {
 
 /*=============== Validation before submit =================*/
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const inputErrors = [];
     const inputValues = {};
@@ -77,7 +77,7 @@ form.addEventListener('submit', (event) => {
         addClassError();
         return;
     } else {
-        fetch('https://jsonplaceholder.typicode.com/posts', {
+        let response = await fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
             body: JSON.stringify(inputValues),
             headers: {
