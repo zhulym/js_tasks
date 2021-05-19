@@ -84,3 +84,114 @@
 
 
 
+/*=======================  ЗАМЫКАНИЯ =============================*/
+
+// // 1. Написать функцию bind, с примером работы:
+// function logPerson() {
+//     console.log(`Person: ${this.name}, ${this.age}, ${this.job}`);
+// }
+
+// function bind(person, func) {
+//     return function (...args) {
+//         func.apply(person, args);
+//     }
+// }
+
+// const person1 = { name: 'Михаил', age: 30, job: 'Front' };
+// const person2 = { name: 'Света', age: 25, job: 'SMM' };
+
+// bind(person1, logPerson)();
+// bind(person2, logPerson)();
+
+
+
+/*=======================  Асинхронность, Промисы, asynk await, fetch, try...catch =============================*/
+// // 1.=====
+// console.log('1'); 
+// console.log('2');
+
+// setTimeout(() => {
+//     console.log('3 //Сообщение через 2с');
+// }, 2000);
+
+// console.log('4');
+// console.log('5');        // 1 2 4 5   3    3 выдаст после 2 с
+
+
+// // 2.=====
+// // если выставим таймаут 0 то всё равно 3 выдаст последним, так как сначала просто регится выпадает из стека,
+// // попадает в API, готовится, попадает в очередь, а затем обратно в стек и выдаётся результат
+// console.log('1'); 
+// console.log('2');
+
+// setTimeout(() => {
+//     console.log('3 //Сообщение через 2с');
+// }, 00);
+
+// console.log('4');
+// console.log('5');        // 1 2 4 5   3    3 выдаст после 2 с
+
+
+
+// // 3. 
+// console.log('Request data...');   //имитируем запрос на сервер
+
+// // setTimeout(() => {                    //имитируем время обработки запроса
+// //     console.log('Preparing data...'); // данные готовятся
+
+// //     const ourData = {                 //например ожидаем эти данные
+// //         server: 'aws',
+// //         port: 3000,
+// //         status: 'working',
+// //     }
+
+// //     setTimeout(() => {                // возврат и выведение значения
+// //         ourData.modified = true;
+// //         console.log('Data received', ourData);
+// //     }, 2000);
+
+// // }, 2000);
+
+// //======= далее на примере с промисом
+
+// const newProm = new Promise((resolve, reject) => {
+//     setTimeout(() => {                    //имитируем время обработки запроса
+//         console.log('Preparing data...'); // данные готовятся
+//         const ourData = {                 //например ожидаем эти данные
+//             server: 'aws',
+//             port: 3000,
+//             status: 'working',
+//         }
+//         resolve(ourData);
+//     }, 2000)
+// })
+
+// newProm
+//     .then(data => {
+//         return new Promise((resolve, reject) => {
+//             setTimeout(() => {
+//                 data.modified = true;
+//                 resolve(data);
+//             }, 2000);
+//         })
+//     })
+//     .then(clientData => {
+//         console.log('Data received', clientData);
+//     })
+//     .catch((err) => {
+//         console.error('Ой, ошибка: ', err);
+//     })
+//     .finally(() => {
+//         console.log('Finlly Обрабатывается всегда, независимо от результата');
+//     })
+
+
+
+
+
+
+
+
+
+
+
