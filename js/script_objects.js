@@ -125,43 +125,88 @@
 
 
 
-/*По новому стандарту конструктор можно создать след образом исполюзуя class (такой стиль у JAVA) (переделываем то что было выше)*/
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// /*По новому стандарту конструктор можно создать след образом исполюзуя class (такой стиль у JAVA) 
+// (переделываем то что было выше)*/
 
-class Constr_3 {
-    constructor(id, name, age) {           //здесь сам конструктор
-        this.id = id;
-        this.name = name;
-        this.age = age;
-    }
+// class Constr_3 {
+//     constructor(id, name, age) {           //здесь сам конструктор
+//         this.id = id;
+//         this.name = name;
+//         this.age = age;
+//     }
 
-    newAge() {                        // здесь создали свойство !!оно записывается в прототип(не в конструктор)
-        this.age - 2020;
-    }
+//     newAge() {                        // здесь создали свойство !!оно записывается в прототип(не в конструктор)
+//         this.age - 2020;
+//     }
+// }
+
+// person1 = new Constr_3(1, 'Ralf', 31);
+// console.log(person1);
+// console.log(person1.newAge());
+
+// class Constr_4 extends Constr_3 {           // здесь говорим что в кон-ре будет использоваться другой кон-тор
+//     constructor(id, name, age, city, hobby) {   // здесь указать параметры от обеих конструкторов
+//         super(id, name, age);                    // так с супер можно использовать свойства от первого конструктора
+//         this.city = city;
+//         this.hobby = hobby;
+//     }
+
+//     sayName() {                        // здесь создали свойство !!оно записывается в прототип(не в конструктор)
+//         alert('Hello' + this.name);
+//     }
+// }
+
+// person2 = new Constr_4(2, 'Serge', 20, 'Minsk', 'Sport');
+
+// person2.sayName();
+
+// console.log(person2.id);
+// person2.newAge();
+// console.log(person2);
+
+
+
+
+
+// // 1. Создать объект, потом второй и связать их, для второго вызвать метод из первого. BIND()
+// const obj1 = {
+//     name: 'Ben',
+//     age: 20,
+//     sayHello() {
+//         console.log('Hello');
+//     },
+// }
+
+// const obj2 = {
+//     name: 'Ted',
+//     age: 30,
+// }
+
+// const bindedObj2 = obj1.sayHello.bind(obj2);  // привязали метод из obj1 к obj2
+
+// console.log(obj1, obj2);
+// console.log(obj1.sayHello());  //hello
+// console.log(bindedObj2());     //hello
+
+
+
+
+// 2. Есть массив, создать ф-цию, которая принимает массив и число и возвращает новый массив с результатом
+// умножения каждого эл массива на это число
+const myArr = [1, 2, 3, 4, 5];
+
+// function multyply(arr, num) {                //обычный вариант решения
+//     return arr.map(item => item * num)
+// }
+// console.log(multyply(myArr, 5));
+
+// сделаем метод для массива, который решит задачу также
+
+Array.prototype.multyply = function (num) {
+    return this.map(item => item * num);
 }
 
-person1 = new Constr_3(1, 'Ralf', 31);
-console.log(person1);
-console.log(person1.newAge());
+console.log(myArr.multyply(3));
 
-
-
-class Constr_4 extends Constr_3 {           // здесь говорим что в кон-ре будет использоваться другой кон-тор
-    constructor(id, name, age, city, hobby) {   // здесь указать параметры от обеих конструкторов
-        super(id, name, age);                    // так с супер можно использовать свойства от первого конструктора
-        this.city = city;
-        this.hobby = hobby;
-    }
-
-    sayName() {                        // здесь создали свойство !!оно записывается в прототип(не в конструктор)
-        alert('Hello' + this.name);
-    }
-}
-
-person2 = new Constr_4(2, 'Serge', 20, 'Minsk', 'Sport');
-
-person2.sayName();
-
-console.log(person2.id);
-person2.newAge();
-console.log(person2);
 
