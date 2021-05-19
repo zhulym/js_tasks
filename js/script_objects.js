@@ -192,21 +192,20 @@
 
 
 
-// 2. Есть массив, создать ф-цию, которая принимает массив и число и возвращает новый массив с результатом
-// умножения каждого эл массива на это число
-const myArr = [1, 2, 3, 4, 5];
+// // 2. Есть массив, создать ф-цию, которая принимает массив и число и возвращает новый массив с результатом
+// // умножения каждого эл массива на это число
+// const myArr = [1, 2, 3, 4, 5];
 
-// function multyply(arr, num) {                //обычный вариант решения
-//     return arr.map(item => item * num)
+// // function multyply(arr, num) {                //обычный вариант решения
+// //     return arr.map(item => item * num)
+// // }
+// // console.log(multyply(myArr, 5));
+
+
+// // сделаем метод для массива, который решит задачу также
+// Array.prototype.multyply = function (num) {
+//     return this.map(item => item * num);
 // }
-// console.log(multyply(myArr, 5));
-
-// сделаем метод для массива, который решит задачу также
-
-Array.prototype.multyply = function (num) {
-    return this.map(item => item * num);
-}
-
-console.log(myArr.multyply(3));
+// console.log(myArr.multyply(3));
 
 
