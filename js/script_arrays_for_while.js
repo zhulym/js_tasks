@@ -266,6 +266,9 @@
 // const newStr = arr.join(' ');
 // console.log(newStr);
 
+//ВАР 2!!!!
+// newStr = str.charAt(0).toUpperCase() + str.slice(1);
+
 
 
 // // 3. Сравните строки без учёта регистра
