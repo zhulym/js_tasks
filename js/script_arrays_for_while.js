@@ -421,3 +421,48 @@
 //     return result;
 // }
 // console.log(daysBetweenDates('04/02/2021', '11/04/2021'));
+
+
+
+// // 17. SPREAD ... ... ... ... ... ...
+// // есть один массив передать поэлементно в другой массив
+// let arr1 = [1, 2, 3, 4, 5]
+// let arr2 = [546, 864]
+
+// let arr3 = [...arr1, ...arr2];
+// arr1 = [1, 2, 3, ...arr2, 4, 5];
+// console.log(arr3);
+// console.log(arr1);
+
+// // 18. Найти наибольшее число в массиве через spread
+// let arr1 = [1, 2, 10, 3, 4, 5]
+
+// let maxNum = Math.max(...arr1);
+// console.log(maxNum);
+
+
+// // 19. Так копируются по ссылке а если через spread то это будут два разных массива
+// let arr1 = [1, 2, 3, 4, 5];
+// let arr2 = arr1;
+// console.log(arr1 == arr2);  //true
+// console.log(arr1 === arr2); //true
+
+// arr2[0] = 50;
+// console.log(arr1);  // 50..
+// console.log(arr2);  // 50..
+// ///////////////////////////
+// let arr3 = [4, 5];
+// let arr4 = [...arr3];
+// console.log(arr1 == arr2);  //true
+// console.log(arr1 === arr2); //true
+// // НО! если перезаписать 
+// arr4[0] = 33;
+// console.log(arr3);  //  4,  5
+// console.log(arr4);  // 33,  5
+
+
+// //20. Строка и spread
+
+// let str = 'hello world';
+// let arr = [...str];
+// console.log(arr);  // ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
