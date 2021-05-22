@@ -1,3 +1,4 @@
+"use strict"
 // /* ==============  Создали конструктор объекта, функции вынесли в прототип конструктора чтобы не нагружать память  ========================= */
 
 // function Post(userId, userAuthor, userCity) {
@@ -207,5 +208,93 @@
 //     return this.map(item => item * num);
 // }
 // console.log(myArr.multyply(3));
+
+
+
+
+// // 3. Пример вызова метода с .call
+
+// function showName() {
+//     alert(this.userName);
+// }
+
+// const user1 = {
+//     userName: 'Den',
+// }
+// const user2 = {
+//     userName: 'Ben',
+// }
+
+// showName.call(user1);
+// showName.call(user2);
+
+
+
+// // 4. Пример вызова метода с .call просто вызывается с this ккоторый передаём (может менятся)
+
+// function addInfo(age, position) {
+//     this.age = age;
+//     this.position = position;
+// }
+
+// const user = {
+//     name: 'Den',
+// }
+
+// addInfo.call(user, '20', 'Developer');
+// console.log(user);
+
+
+
+
+// // 5. Пример вызова метода с .apply   .bind - привязывает напрямую контекст выполнения this
+// //   .bind также создаёт новую фцию, которую можно потом вызвать
+
+// const user = {
+//     userName: 'John',
+//     sayHello() {
+//         console.log(`${this.userName}, Hello`);
+//     },
+// }
+
+// console.log(user.sayHello());       // John, Hello
+// setTimeout(user.sayHello, 1000);  // undefined при вызове контекст this указавыет уже на window, так как setTimeout его метод 
+
+// setTimeout(user.sayHello.bind(user), 1000);  // John, Hello т.к. указали, что метод выполнится с контекстом user!!!
+
+// let sayHelloUser = user.sayHello.bind(user);  // можно сохранить в переменную и использовать
+// console.log(sayHelloUser());
+
+
+
+// 6. У стрелочной функции this будет указывать на объект в котором он используется, своего this не имеет
+// и берёт от родителя, т.е для стрелочной фции this-сом является то что было в момент её объявления
+
+
+// // 7. Пример с классом
+// /* Не смотря на то, что showName есть только в BaseUser, в момент его вызова
+// this в нем указывает на user. */
+// class BaseUser {
+//     constructor() {
+//         this.username = null;
+//     }
+
+//     showName() {
+//         console.log(this.username);
+//     }
+// }
+
+// const baseuser = new BaseUser();
+// baseuser.showName(); //null
+
+// class User extends BaseUser {
+//     constructor(name) {
+//         super();
+//         this.username = name;
+//     }
+// }
+
+// const user = new User('alex');
+// user.showName(); //alex
 
 
