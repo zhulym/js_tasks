@@ -105,6 +105,54 @@
 
 
 
+
+// // 2.Есть массив, но работает неправильно, объяснить почему и как исправить
+
+// const fib = [1, 2, 3, 5, 8, 13];
+
+// // for (var i = 0; i < fib.length; i++) {
+
+// //     setTimeout(() => {
+// //         console.log(`FIB[${i}] = ${fib[i]}`);
+// //     }, 1500);
+// // }
+
+// //Вариант 1 заменить var на let;
+// //Вариант 2 изменить область скоупа обернув в функцию и вызвать и изолировать i
+// for (var i = 0; i < fib.length; i++) {
+//     (function (j) {
+//         setTimeout(() => {
+//             console.log(`FIB[${j}] = ${fib[j]}`);
+//         }, 1500);
+//     })(i);
+// }
+
+
+
+// // 2.Есть классический счётчик, сделать замыкание
+// // let count = 0;
+// // function counter() {
+// //     count += 1;
+// //     return count;
+// // }
+// // counter();
+// // console.log(count);
+
+// function makeCounter() {
+//     let count = 0;
+//     function counter() {
+//         count += 1;
+//         return count;
+//     }
+//     return counter();
+// }
+// console.log(makeCounter());
+
+
+
+
+
+
 /*=======================  Асинхронность, Промисы, asynk await, fetch, try...catch =============================*/
 // // 1.=====
 // console.log('1'); 
