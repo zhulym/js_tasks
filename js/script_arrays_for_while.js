@@ -280,18 +280,24 @@
 
 
 
-// // 4. Удалить лишние пробелы из строки
+// // // 4. Удалить лишние пробелы из строки
 
+// // let str = "       Max is a good boy    ";
+// // let arr = str.split(' ');
+// // let newArr = [];
+// // arr.forEach((el) => {
+// //     if (el !== '') {
+// //         newArr.push(el);
+// //     }
+// // });
+// // str = newArr.join(' ');
+// // console.log(str);
+
+// // VAR II
 // let str = "       Max is a good boy    ";
-// let arr = str.split(' ');
-// let newArr = [];
-// arr.forEach((el) => {
-//     if (el !== '') {
-//         newArr.push(el);
-//     }
-// });
-// str = newArr.join(' ');
-// console.log(str);
+// let newStr = str.trim();
+// console.log(newStr);
+
 
 
 
@@ -466,3 +472,27 @@
 // let str = 'hello world';
 // let arr = [...str];
 // console.log(arr);  // ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
+
+
+
+// //21. Есть строка с пробелами, заменить все пробелы на '-'.
+// // //var I
+// // let str = "Lorem ipsum fbesaef adsv ookok";
+
+// // let newStr = '';
+
+// // for (let i = 0; i < str.length; i++) {
+// //     if (str[i] === ' ') {
+// //         newStr += '-';
+// //     } else {
+// //         newStr += str[i];
+// //     }
+// // }
+
+// // console.log(newStr);
+
+// // var II
+// let str = "Lorem ipsum fbesaef adsv ookok";
+// let newStr = str.replace(/ /g, '-');
+// console.log(newStr);
+
