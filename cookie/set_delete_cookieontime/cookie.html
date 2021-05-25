@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML/CSS/JS</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<link rel="stylesheet" href="./css/style_dom_events.css" type="text/css">
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+	<script>
+
+		function setItemToLS(value) {
+			if (localStorage.getItem('myKey')) {
+				return;
+			}
+
+			const now = new Date();
+			const dueDate = now.setSeconds(now.getSeconds() + 15);
+
+			const val = { value: value, dueDate: now };
+
+			localStorage.setItem('myKey', JSON.stringify(val));
+		}
+
+		function removeItemFromLS() {
+			const now = new Date().getTime();
+			const item = JSON.parse(localStorage.getItem('myKey'));
+
+			if (!item) {
+				return;
+			}
+
+			console.log(new Date(now))
+			console.log(new Date(item.dueDate))
+
+			if (new Date(item.dueDate).getTime() > now) {
+				return;
+			}
+
+			localStorage.removeItem('myKey');
+		}
+
+		const timerId = setInterval(() => removeItemFromLS(), 1000);
+
+		setItemToLS('test');
+
+
+
+	</script>
+</body>
+
+</html>
