@@ -298,3 +298,30 @@
 // user.showName(); //alex
 
 
+// /*======================= Деструкуризация массива, объекта ===================================*/
+
+// let arr = [
+//     { a: 1, b: 2 },
+//     { tr: 'st', io: 'dk', pc: [10, 20] }
+// ];
+
+// let [
+//     { a: num1, b: num2 },
+//     {
+//         tr: transistor,
+//         io: iopan,
+//         pc: [num3, num4]
+//     }
+// ] = arr;
+
+
+// console.log(num1, num2, transistor, iopan, num3, num4);
+// // или так если без переменных
+// /* let [
+//     { a, b },
+//     {
+//         tr,
+//         io,
+//         pc: [num3, num4]
+//     }
+// ] = arr; */
