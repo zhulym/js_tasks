@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Main</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+	<button id="registration" class="reg_button">Registration</button>
+	<div class="form-wrapper">
+		<form method="POST" action="/javascript/getcookie/" id="form" class="form" name="myForm">
+
+			<div class="form-control">
+				<label for="form_name" id='name_label'>Your Name</label>
+				<input id='form_name' class="form_item" name='name' type="text" placeholder="Enter your name"
+					autocomplete="off" required value />
+			</div>
+
+			<div class="form-control">
+				<label for="form_email" id='email_label'>Your Email</label>
+				<input id='form_email' class="form_item" name='email' type="email" placeholder="Enter your email"
+					autocomplete="off" required />
+			</div>
+
+			<div class="form-control">
+				<label for="form_password" id='password_label'>Your Name</label>
+				<input id='form_password' class="form_item" name='password' type="password"
+					placeholder="Enter your password" required />
+			</div>
+			<input id="form-submit" class="form-submit" type="submit" />
+		</form>
+	</div>
+
+
+	<div class="modal_window">
+		<div class="modal_info">
+			<p class="modal_text"></p>
+		</div>
+		<span class="close_button">&times;</span>
+	</div>
+
+
+
+
+	<script src="./js/script.js"></script>
+</body>
+
+</html>

@@ -477,7 +477,7 @@
 
 // //21. Есть строка с пробелами, заменить все пробелы на '-'.
 // // //var I
-// // let str = "Lorem ipsum fbesaef adsv ookok";
+// // const str = "Lorem ipsum fbesaef adsv ookok";
 
 // // let newStr = '';
 
@@ -492,7 +492,27 @@
 // // console.log(newStr);
 
 // // var II
-// let str = "Lorem ipsum fbesaef adsv ookok";
-// let newStr = str.replace(/ /g, '-');
+// const str = "Lorem ipsum fbesaef adsv ookok";
+// const newStr = str.replace(/ /g, '-');
 // console.log(newStr);
 
+
+
+// //22. Написать чистую фцию, которая удаляет элемент из массива (без .splice   .pop);
+
+// const names = ['den', 'ben', 'sem'];
+
+// const delElem = (elem, array) => {
+//     return array.filter(item => item !== elem);
+// }
+// let newArr = delElem('ben', names);
+
+// console.log(newArr.join(", "));   // den, sem
+
+
+
+// //22. Сделать из массива массив объектов - ключ-значение
+
+// const names = ['den', 'ben', 'sem'];
+// const newArr = names.map(el => ({ name: el }));
+// console.log(newArr);
