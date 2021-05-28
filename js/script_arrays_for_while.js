@@ -515,4 +515,8 @@
 
 // const names = ['den', 'ben', 'sem'];
 // const newArr = names.map(el => ({ name: el }));
-// console.log(newArr);
+// console.log(newArr);  
+
+
+
+//23.
