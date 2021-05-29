@@ -519,4 +519,19 @@
 
 
 
-//23.
+// //23. Есть массив объектов, создать функцию для замены одного объекта другим
+
+// let city = [
+//     { name: 'Minsk' },
+//     { name: 'Brest' },
+//     { name: 'Gomel' },
+//     { name: 'Grodno' }
+// ];
+
+// const changeCity = (oldCity, name, array) =>
+//     array.map(item => (item.name === oldCity) ? ({ ...item, name }) : item);
+
+// let city2 = changeCity('Gomel', 'Pinsk', city);
+// console.log(city[2]);                                 //здесь исходный массив не меняется
+// console.log(city2[2]);
+
