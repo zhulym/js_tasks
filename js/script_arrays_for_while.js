@@ -535,3 +535,38 @@
 // console.log(city[2]);                                 //здесь исходный массив не меняется
 // console.log(city2[2]);
 
+
+
+
+// // 24. Преобразовать объект в массив
+// let cityes = {
+//     'minsk': 10,
+//     'brest': 5,
+//     'grodno': 3
+// };
+
+// const arrayFromObj = Object.keys(cityes).map(key =>  //фигурные скобки НЕ нужны
+// ({
+//     name: key,
+//     wins: cityes[key],
+// })
+// )
+
+// console.log(Object.keys(cityes));   // ["minsk", "brest", "grodno"]
+// console.log(arrayFromObj);   // вернёт массив объектов
+
+
+
+// // 25. Найти наибольшее число в массиве REDUSE
+
+// const ages = [21, 15, 8, 88, 41, 50];
+
+// const maxAge = ages.reduce((max, value) => {  // (max, value) => (value > max) ? value : max;
+//     if (value > max) {
+//         return value;
+//     } else {
+//         return max;
+//     }
+// }, 0)
+
+// console.log(maxAge);  // 88
