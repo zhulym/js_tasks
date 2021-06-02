@@ -10,7 +10,7 @@ function pug2html() {
         .pipe(gulpPug(                      //  прикручиваем обработчик для пагов
             { pretty: true }                 // объект для настроек, здесь тру html будет без минификации, остальные настройки в доке
         ))
-        .pipe(plumber.stop())         // !!! останавливаем пламбер для более стабильной работы (внутри будут другие пакеты)
+        .pipe(gulpPlumber.stop())         // !!! останавливаем пламбер для более стабильной работы (внутри будут другие пакеты)
         .pipe(gulp.dest('dist'));   // указываем куда будут помещаться обработанные файлы (папка dist)
 }
 
@@ -19,7 +19,7 @@ function scss2css() {
     return gulp.src('dev/static/styles/style.scss')  // только один файл указывать
         .pipe(gulpPlumber())
         .pipe(gulpSass())
-        .pipe(plumber.stop())
+        .pipe(gulpPlumber.stop())
         .pipe(gulp.dest('dist/static/css'));
 }
 
