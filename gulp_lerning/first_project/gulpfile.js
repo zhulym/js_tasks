@@ -1,13 +1,26 @@
 const gulp = require('gulp');
 const gulpPug = require('gulp-pug'); //обработчик для пагов
+const gulpSass = require('gulp-sass');
+const gulpPlumber = require('gulp-plumber'); // пакет укажет ошибку, и запустит сборку, без него при ошибке сборщик не сработает
 
 
-function pug2html(cb) {
+function pug2html() {
     return gulp.src('dev/pug/pages/*.pug') // путь к файлам, которые будем обрабатывать
+        .pipe(gulpPlumber())                     //  прикручиваем обработчик ошибок !!!!ниже останавливаем (внутри будут другие пакеты)
         .pipe(gulpPug(                      //  прикручиваем обработчик для пагов
             { pretty: true }                 // объект для настроек, здесь тру html будет без минификации, остальные настройки в доке
         ))
+        .pipe(plumber.stop())         // !!! останавливаем пламбер для более стабильной работы (внутри будут другие пакеты)
         .pipe(gulp.dest('dist'));   // указываем куда будут помещаться обработанные файлы (папка dist)
 }
 
-exports.default = gulp.series(pug2html);  // передаём ф-цию 
+
+function scss2css() {
+    return gulp.src('dev/static/styles/style.scss')  // только один файл указывать
+        .pipe(gulpPlumber())
+        .pipe(gulpSass())
+        .pipe(plumber.stop())
+        .pipe(gulp.dest('dist/static/css'));
+}
+
+exports.default = gulp.series(pug2html, scss2css);
