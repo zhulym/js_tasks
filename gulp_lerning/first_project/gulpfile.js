@@ -2,6 +2,9 @@ const gulp = require('gulp');
 const gulpPug = require('gulp-pug'); //обработчик для пагов
 const gulpSass = require('gulp-sass');
 const gulpPlumber = require('gulp-plumber'); // пакет укажет ошибку, и запустит сборку, без него при ошибке сборщик не сработает
+const gulpAutoprefixer = require('gulp-autoprefixer'); //расставит префиксы для стилей по разные браузеры (какие конкретно тоже настраиваем в package.json)
+const gulpCleanCss = require('gulp-clean-css');
+
 
 function pug2html() {
     return gulp.src('dev/pug/pages/*.pug') // путь к файлам, которые будем обрабатывать
@@ -17,6 +20,8 @@ function scss2css() {
     return gulp.src('dev/static/styles/style.scss')  // только один файл указывать
         .pipe(gulpPlumber())
         .pipe(gulpSass())
+        .pipe(gulpCleanCss())
+        .pipe(gulpAutoprefixer())
         .pipe(gulpPlumber.stop())
         .pipe(gulp.dest('dist/static/css'));
 }
