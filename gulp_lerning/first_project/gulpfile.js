@@ -3,7 +3,6 @@ const gulpPug = require('gulp-pug'); //обработчик для пагов
 const gulpSass = require('gulp-sass');
 const gulpPlumber = require('gulp-plumber'); // пакет укажет ошибку, и запустит сборку, без него при ошибке сборщик не сработает
 
-
 function pug2html() {
     return gulp.src('dev/pug/pages/*.pug') // путь к файлам, которые будем обрабатывать
         .pipe(gulpPlumber())                     //  прикручиваем обработчик ошибок !!!!ниже останавливаем (внутри будут другие пакеты)
@@ -13,7 +12,6 @@ function pug2html() {
         .pipe(gulpPlumber.stop())         // !!! останавливаем пламбер для более стабильной работы (внутри будут другие пакеты)
         .pipe(gulp.dest('dist'));   // указываем куда будут помещаться обработанные файлы (папка dist)
 }
-
 
 function scss2css() {
     return gulp.src('dev/static/styles/style.scss')  // только один файл указывать
