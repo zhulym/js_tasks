@@ -1,1 +1,1 @@
-"use strict";var a=10,d=15;[1,2,3].forEach(function(r){return 2*r});
+"use strict";var a=10,d=15;

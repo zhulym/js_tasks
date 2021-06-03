@@ -1,4 +1,10 @@
+@import "./modules/header/header.scss";
+
 body {
     background-color: rgb(195, 176, 212);
     display: flex;
+}
+
+h1 {
+    background-color: rgb(211, 141, 141);
 }
