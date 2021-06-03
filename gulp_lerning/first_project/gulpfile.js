@@ -1,7 +1,10 @@
 const gulp = require('gulp');
 const gulpPug = require('gulp-pug'); //обработчик для пагов
 const gulpSass = require('gulp-sass');
-const gulpPlumber = require('gulp-plumber'); // пакет укажет ошибку, и запустит сборку, без него при ошибке сборщик не сработает
+const gulpPlumber = require('gulp-plumber'); // пакет укажет ошибку, и запустит сборку, без него при ошибке сборщик не сработае
+const gulpBabel = require('gulp-babel');
+const gulpUglify = require('gulp-uglify');
+
 const gulpAutoprefixer = require('gulp-autoprefixer'); //расставит префиксы для стилей по разные браузеры (какие конкретно тоже настраиваем в package.json)
 const gulpCleanCss = require('gulp-clean-css');
 
@@ -26,4 +29,13 @@ function scss2css() {
         .pipe(gulp.dest('dist/static/css'));
 }
 
-exports.default = gulp.series(pug2html, scss2css);
+function script() {
+    return gulp.src('dev/static/js/main.js')  // только один файл указывать
+        .pipe(gulpBabel({
+            presets: ['@babel/env']
+        }))
+        .pipe(gulpUglify())
+        .pipe(gulp.dest('dist/static/js'));
+}
+
+exports.default = gulp.series(pug2html, scss2css, script);
