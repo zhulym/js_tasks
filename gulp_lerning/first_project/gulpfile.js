@@ -13,6 +13,7 @@ const svgSprite = require('gulp-svg-sprite');
 const svgmin = require('gulp-svgmin');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
+const conCat = require('gulp-concat');
 
 const browserSync = require('browser-sync').create();
 
@@ -48,13 +49,19 @@ function scss2css() {
 }
 
 function script() {
-    return gulp.src('dev/static/js/main.js')  // только один файл указывать
+    return gulp.src('dev/static/js/main.js')
         .pipe(gulpBabel({
             presets: ['@babel/env']
         }))
-        .pipe(gulpUglify())                  // минифицирует джс файл               
+        .pipe(gulpUglify())
         .pipe(browserSync.stream())
         .pipe(gulp.dest('dist/static/js'));
+}
+
+function libs() {
+    return gulp.src('node_modules/slick-carousel/slick/slick.min.js')
+        .pipe(conCat('libs.js'))
+        .pipe(gulp.dest('dist/static/js/libs'));
 }
 
 function imageMin() {
@@ -118,4 +125,4 @@ function watch() {
 }
 
 
-exports.default = gulp.series(clean, fonts, pug2html, scss2css, imageMin, svgSpriteBuild, script, watch);
+exports.default = gulp.series(clean, fonts, pug2html, scss2css, imageMin, svgSpriteBuild, script, libs, watch);
