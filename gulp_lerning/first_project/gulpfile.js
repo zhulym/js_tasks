@@ -64,7 +64,7 @@ function copyJquery() {
 }
 
 function libs() {
-    return gulp.src('node_modules/slick-carousel/slick/slick.min.js')
+    return gulp.src(['node_modules/slick-carousel/slick/slick.min.js', 'node_modules/swiper/swiper-bundle.min.js'])
         .pipe(conCat('libs.js'))
         .pipe(gulp.dest('dist/static/js/libs'));
 }
