@@ -1,0 +1,23 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+    box-sizing: border-box;
+}
+
+.flip:hover {
+    cursor: pointer;
+}
+
+.panel,
+.flip {
+    padding: 5px;
+    text-align: center;
+    background-color: #ccdbee;
+    border: solid 1px #c3c3c3;
+}
+
+.panel {
+    padding: 50px;
+    display: none;
+}
