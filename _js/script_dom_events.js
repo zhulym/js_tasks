@@ -1,50 +1,50 @@
-// Наверстать структуру меню через JS-DOM
-const body = document.querySelector('body');
-const header = document.createElement('header');
-const headerLogo = document.createElement('div');
-const headerMenu = document.createElement('div');
-const menu = document.createElement('ul');
+// // Наверстать структуру меню через JS-DOM
+// const body = document.querySelector('body');
+// const header = document.createElement('header');
+// const headerLogo = document.createElement('div');
+// const headerMenu = document.createElement('div');
+// const menu = document.createElement('ul');
 
-header.classList.add('header');
-headerLogo.classList.add('header__logo');
-headerMenu.classList.add('header__menu');
-menu.classList.add('header__menu-container');
+// header.classList.add('header');
+// headerLogo.classList.add('header__logo');
+// headerMenu.classList.add('header__menu');
+// menu.classList.add('header__menu-container');
 
-const menuList = ["Главная", "О нас", "Отзывы", "Контакты", "Общие вопросы"];
+// const menuList = ["Главная", "О нас", "Отзывы", "Контакты", "Общие вопросы"];
 
-menuList.forEach((item) => {
-    let listItem = document.createElement('li');
-    let listAnchor = document.createElement('a');
-    listItem.classList.add('header__menu_item');
-    listAnchor.classList.add('header__menu_item-link');
-    listAnchor.setAttribute('href', '#');
-    listAnchor.innerHTML = item;
-    listItem.append(listAnchor);
-    menu.append(listItem);
-});
+// menuList.forEach((item) => {
+//     let listItem = document.createElement('li');
+//     let listAnchor = document.createElement('a');
+//     listItem.classList.add('header__menu_item');
+//     listAnchor.classList.add('header__menu_item-link');
+//     listAnchor.setAttribute('href', '#');
+//     listAnchor.innerHTML = item;
+//     listItem.append(listAnchor);
+//     menu.append(listItem);
+// });
 
-headerMenu.append(menu);
-headerLogo.innerHTML = "LOGO";
-header.append(headerLogo, headerMenu);
-body.append(header);
+// headerMenu.append(menu);
+// headerLogo.innerHTML = "LOGO";
+// header.append(headerLogo, headerMenu);
+// body.append(header);
 
 
 
-// Добавить на страницу 3 тега p и сделать чтоб второй пропал через 2сек.
+// // Добавить на страницу 3 тега p и сделать чтоб второй пропал через 2сек.
 
-let contentContainer = document.createElement('div');
-let content = ['Paragraph 1', 'Paragraph 2', 'Paragraph 3'];
+// let contentContainer = document.createElement('div');
+// let content = ['Paragraph 1', 'Paragraph 2', 'Paragraph 3'];
 
-content.forEach((item) => {
-    let contentItem = document.createElement('p');
-    contentItem.innerHTML = item;
-    contentContainer.append(contentItem);
-    body.append(contentContainer);
-});
+// content.forEach((item) => {
+//     let contentItem = document.createElement('p');
+//     contentItem.innerHTML = item;
+//     contentContainer.append(contentItem);
+//     body.append(contentContainer);
+// });
 
-setTimeout(() => contentContainer.children[1].remove(), 2000);
-let extraText = document.querySelector('p');
-extraText.insertAdjacentHTML("afterend", "<p>Next text</>");
+// setTimeout(() => contentContainer.children[1].remove(), 2000);
+// let extraText = document.querySelector('p');
+// extraText.insertAdjacentHTML("afterend", "<p>Next text</>");
 
 
 
@@ -347,6 +347,6 @@ extraText.insertAdjacentHTML("afterend", "<p>Next text</>");
 // })
 
 
-/*================================================= HW DOM 5 ======================================================*/
+/*=================================================     ======================================================*/
 
 
