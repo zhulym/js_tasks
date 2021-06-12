@@ -36,43 +36,52 @@ const data = [
     }
 ]
 
-const Ingredients = ({ data = [] }) => (
-    <ul className="ingredients">
-        {data.map((ingredient, i) => (
-            <li key={i}>{ingredient.name}</li>
-        ))}
-    </ul>
-);
-
-const Instructions = ({ data = [] }) => (
-    <section className="instructions">
-        <h4>Как готовить:</h4>
-        {data.map((step, i) => (
-            <p key={i}>{`---  ${step}`}</p>
-        ))}
-    </section>
-);
-
-const Recipe = ({ name, ingredients, steps }) => (
-    <section id={name.toLowerCase().replace(/ /g, "-")}>
-        <h1>{name}</h1>
-        <Ingredients data={ingredients} />
-        <Instructions data={steps} />
-    </section>
-);
-
-const Menu = ({ title, recipes }) => (
-    <article>
-        <header>
-            <h1>{title}</h1>
-        </header>
-        <div className="recipes">
-            {recipes.map((recipe, i) => (
-                <Recipe key={i} {...recipe} />
+const Ingredients = ({ data = [] }) => {
+    return (
+        <ul className="ingredients">
+            {data.map((ingredient, i) => (
+                <li key={i}>{ingredient.name}</li>
             ))}
-        </div>
-    </article>
-);
+        </ul>
+    );
+}
+
+const Instructions = ({ data = [] }) => {
+    return (
+        <section className="instructions">
+            <h4>Как готовить:</h4>
+            {data.map((step, i) => (
+                <p key={i}>{`---  ${step}`}</p>
+            ))}
+        </section>
+    );
+}
+
+const Recipe = ({ name, ingredients, steps }) => {
+    return (
+        <section id={name.toLowerCase().replace(/ /g, "-")}>
+            <h1>{name}</h1>
+            <Ingredients data={ingredients} />
+            <Instructions data={steps} />
+        </section>
+    );
+}
+
+const Menu = (props) => {
+    return (
+        <article>
+            <header>
+                <h1>{props.title}</h1>
+            </header>
+            <div className="recipes">
+                {props.recipes.map((recipe, i) => (
+                    <Recipe key={i} name={recipe.name} ingredients={recipe.ingredients} steps={recipe.steps} />
+                ))}
+            </div>
+        </article>
+    );
+}
+
 
 ReactDOM.render(
     <Menu recipes={data} title="Delicious Recipes" />,
