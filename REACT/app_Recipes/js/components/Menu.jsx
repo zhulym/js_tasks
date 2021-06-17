@@ -1,3 +1,7 @@
+import React from "react";
+import Recipe from "./Recipe";
+import "./Menu.css";
+
 const data = [
     {
         "name": "Запеченный лосось",
@@ -36,54 +40,19 @@ const data = [
     }
 ]
 
-const Ingredients = ({ data = [] }) => {
-    return (
-        <ul className="ingredients">
-            {data.map((ingredient, i) => (
-                <li key={i}>{ingredient.name}</li>
-            ))}
-        </ul>
-    );
-}
-
-const Instructions = ({ data = [] }) => {
-    return (
-        <section className="instructions">
-            <h4>Как готовить:</h4>
-            {data.map((step, i) => (
-                <p key={i}>{`---  ${step}`}</p>
-            ))}
-        </section>
-    );
-}
-
-const Recipe = ({ name, ingredients, steps }) => {
-    return (
-        <section id={name.toLowerCase().replace(/ /g, "-")}>
-            <h1>{name}</h1>
-            <Ingredients data={ingredients} />
-            <Instructions data={steps} />
-        </section>
-    );
-}
-
-const Menu = (props) => {
+const Menu = ({ recipes = [] }) => {
     return (
         <article>
             <header>
-                <h1>{props.title}</h1>
+                <h1>Delicious Recipes</h1>
             </header>
             <div className="recipes">
-                {props.recipes.map((recipe, i) => (
-                    <Recipe key={i} name={recipe.name} ingredients={recipe.ingredients} steps={recipe.steps} />
+                {recipes.map((props, i) => (
+                    <Recipe key={i} {...props} />
                 ))}
             </div>
         </article>
     );
 }
 
-
-ReactDOM.render(
-    <Menu recipes={data} title="Delicious Recipes" />,
-    document.getElementById("react-container")
-);
+export default Menu
