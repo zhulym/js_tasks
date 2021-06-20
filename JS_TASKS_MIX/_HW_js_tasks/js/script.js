@@ -67,7 +67,7 @@
 
 
 // // 8. Разница между двумя массивами
-// // Напишите функцию union, которая возвращает массив, содержащий все элементы arr1, которые не находятся в arr2
+// //    Напишите функцию union, которая возвращает массив, содержащий все элементы arr1, которые не находятся в arr2
 // let arr1 = [1, 2, 'a'];
 // let arr2 = [1, 2, 3, 4, 'b'];
 
@@ -93,7 +93,7 @@
 
 
 // // 11. Напишите функцию findLongestWord(str), которая принимает строку 
-// // в качестве параметра и находит самое длинное слово в строке
+// //     в качестве параметра и находит самое длинное слово в строке
 // function findLongestWord(str) {
 //     let arr = str.split(' ');
 //     let longest = arr.reduce((firstEl, nextEl) => (firstEl.length > nextEl.length) ? firstEl : nextEl);
@@ -111,8 +111,8 @@
 
 
 // // 13. Напишете метод который преобразует число 2500 в валюту в зависимости 
-// // от параметра yourMethod('en-US', 'USD', 2500) =>  $2,500.00. 
-// //  yourMethod('de-DE', 'EUR', 2500) => 2.500,00 €
+// //     от параметра yourMethod('en-US', 'USD', 2500) =>  $2,500.00. 
+// //      yourMethod('de-DE', 'EUR', 2500) => 2.500,00 €
 
 // function yourMethod(locales, currency, amount) {
 //     return new Intl.NumberFormat(locales, { style: 'currency', currency: currency }).format(amount);
@@ -122,8 +122,8 @@
 
 
 // // 14. Узнать количество дней в месяце
-// // Напишите функцию JavaScript, чтобы получить количество дней в месяце.
-// // Пример ввода: // console.log(getDaysInMonth(5, 2021));  Вывод: 31
+// //     Напишите функцию JavaScript, чтобы получить количество дней в месяце.
+// //     Пример ввода: // console.log(getDaysInMonth(5, 2021));  Вывод: 31
 
 // function getDaysInMonth(setMonth, setYear) {
 //     const date = new Date(setYear, setMonth, 0).getDate();
@@ -147,8 +147,8 @@
 
 
 // // 16. Разница между двумя датами в днях
-// // Напишите функцию JavaScript, чтобы узнать разницу между двумя датами в днях.
-// // Пример ввода:   console.log(difference('04/02/2021', '11/04/2021'));   Вывод:216
+// //     Напишите функцию JavaScript, чтобы узнать разницу между двумя датами в днях.
+// //     Пример ввода:   console.log(difference('04/02/2021', '11/04/2021'));   Вывод:216
 
 // function daysBetweenDates(firstDate, secondDate) {
 //     const result = (Math.abs(new Date(firstDate) - new Date(secondDate))) / 8.64e+7;
@@ -159,8 +159,8 @@
 
 
 // // 17. 1. Написать функцию loop, которая будет принимать параметры: times (значение по умолчанию = 0), callback (значение по умолчанию = null) 
-// // и будет в цикле (times раз), вызывать функцию callback. Если функцию не передана, то цикл не должен отрабатывать ни разу. Покажите 
-// // применение этой функции
+// //    и будет в цикле (times раз), вызывать функцию callback. Если функцию не передана, то цикл не должен отрабатывать ни разу. Покажите 
+// //    применение этой функции
 
 // const loop = (times = 0, callback = null) => {
 //     if (typeof callback !== 'function') {
@@ -186,9 +186,9 @@
 
 
 // // 18. 2. Написать функцию calculateArea, которая будет принимать параметры, для вычисления площади (можете выбрать 
-// // какую то конкретную фигуру, а можете, основываясь на переданных параметрах, выполнять требуемый алгоритм вычисления площади для переданной 
-// // в параметрах фигуры) и возвращать объект вида: { area, figure, input }, где area - вычисленная площадь, figure - название фигуры, для 
-// // которой вычислялась площадь, input - входные параметры, по которым было произведено вычисление.
+// //    какую то конкретную фигуру, а можете, основываясь на переданных параметрах, выполнять требуемый алгоритм вычисления площади для переданной 
+// //    в параметрах фигуры) и возвращать объект вида: { area, figure, input }, где area - вычисленная площадь, figure - название фигуры, для 
+// //    которой вычислялась площадь, input - входные параметры, по которым было произведено вычисление.
 
 // function calculateArea(num1, num2, figure) {
 //     let data = {};
@@ -204,8 +204,8 @@
 
 
 // 19. Написать цикл, который создаёт массив промисов, внутри каждого промиса происходит обращение к ресурсу 
-// (​https://jsonplaceholder.typicode.com/users/number​), где вместо number подставляется число от 1 до 10, в итоге должно 
-// получиться 10 пром-в. Следует дождаться выполнения загрузки всеми пром-и и далее вывести массив загруженных данных.
+//     (​https://jsonplaceholder.typicode.com/users/number​), где вместо number подставляется число от 1 до 10, в итоге должно 
+//     получиться 10 пром-в. Следует дождаться выполнения загрузки всеми пром-и и далее вывести массив загруженных данных.
 
 // const arrProm = [];
 // for (let i = 1; i <= 10; i++) {
@@ -233,9 +233,10 @@
 // console.log('Hello');
 
 
+
 // // 20.Реализуйте функцию getLetter(), которая извлекает из переданной строки указанный символ 
-// // (по порядковому номеру, а не индексу) и возвращает его. Если такого символа нет, то функция 
-// // возвращает пустую строку.
+// //    (по порядковому номеру, а не индексу) и возвращает его. Если такого символа нет, то функция 
+// //    возвращает пустую строку.
 
 // const getLetter = (str, numOfLetter) => {
 //     const symbol = str[numOfLetter - 1];
@@ -245,3 +246,134 @@
 //     return symbol
 // }
 // console.log(getLetter('Daniel', 0));
+
+
+
+// // 21. Реализуйте функцию getSentenceTone(), которая принимает строку и определяет тон предложения. 
+// //     Если все символы в верхнем регистре, то это вопль — 'scream'. В ином случае — нормальное 
+// //     предложение — 'general'.
+
+// const getSentenceTone = str => {
+//     if (str.toUpperCase() === str) {
+//         return 'scream'
+//     }
+
+//     return 'general'
+// }
+// console.log(getSentenceTone("VASYA"));
+
+
+
+// // 22. Напишем функцию getTypeOfSentence(), которая анализирует текст и возвращает описание его тона: 
+// //     для обычных предложений – General sentence, для вопросительных – Question sentence.
+
+// const getTypeOfSentence = (sentence) => {
+//     let sentenceType;
+//     // Предикат, проверяющий окончание текста
+//     // Если он оканчивается на символ '?', то вернётся true,
+//     // иначе false
+//     if (sentence.endsWith('?')) {
+//         sentenceType = 'Question';
+//     } else {
+//         sentenceType = 'General';
+//     }
+
+//     return `${sentenceType} sentence`;
+// };
+
+// console.log(getTypeOfSentence('Ты кто такой?'));
+
+
+
+// // 23. Реализуйте функцию buildUrl(), которая принимает на вход адрес страницы (без указания домена) и 
+// //     имя домена, а возвращает полный url со схемой https.
+// //     Первым параметром в функцию могут быть переданы адреса с ведущим слешем / и без него. Задача функции 
+// //     обрабатывать эту ситуацию, чтобы слеш не дублировался.
+// //     Примеры вызова:
+
+// const buildUrl = (adress, domen) => {
+//     // debugger;
+//     if (!adress.startsWith('/')) {
+//         adress = `/${adress}`;
+//     }
+
+//     return `https://${domen}${adress}`;
+// }
+
+// console.log(buildUrl('/pages/about', 'vk.com'));
+
+// //     Примеры вызова:
+// buildUrl('pages/about', 'hexlet.io'); // 'https://hexlet.io/pages/about'
+// buildUrl('/pages/about', 'hexlet.io'); // 'https://hexlet.io/page
+// // Для главной страницы слэш в конце обязателен
+// buildUrl('/', 'ru.code-basics.com'); // 'https://ru.code-basics.com/'
+// buildUrl('', 'ru.code-basics.com'); // 'https://ru.code-basics.com/'
+
+
+
+// // 24. Реализуйте функцию multiplyNumbersFromRange(), которая перемножает числа в указанном диапазоне 
+// //     включая границы диапазона. Пример вызова:  multiplyNumbersFromRange(1, 5); // 1 * 2 * 3 * 4 * 5 = 120
+
+// const multiplyNumbersFromRange = (firstNum, lastNum) => {
+//     let i = firstNum;
+//     let result = 1;
+//     while (i <= lastNum) {
+//         result *= i;
+//         i++;
+//     }
+//     return result;
+// }
+
+// console.log(multiplyNumbersFromRange(3, 5));
+
+
+
+// //25. Реализуйте функцию joinNumbersFromRange(), которая объединяет все числа из диапазона в строку:
+// //    joinNumbersFromRange(1, 1); // '1'
+// //    joinNumbersFromRange(2, 3); // '23'
+// //    joinNumbersFromRange(5, 10); // '5678910'
+
+// const joinNumbersFromRange = (num1, num2) => {
+//     let i = num1;
+//     let str = '';
+//     while (i <= num2) {
+//         str += `${i}`;
+//         i++;
+//     }
+
+//     return str;
+// }
+
+// console.log(joinNumbersFromRange(2, 5));
+
+
+// // 26. Реализуйте функцию printReversedNameBySymbol(), которая печатает переданное слово посимвольно, 
+// // как в примере из теории, но делает это в обратном порядке.
+
+// const printReversedNameBySymbol = str => {
+//     let newStr = str.split('').reverse().join('');
+//     let i = 0;
+//     let lengthIndex = str.length - 1;
+//     while (i <= lengthIndex) {
+//         console.log(newStr[i]);
+//         i++
+//     }
+// }
+
+// console.log(printReversedNameBySymbol('Федя'));
+
+
+
+// // 27. Реализуйте такую же функцию reverse(), но выполняющую обход строки не с первого элемента по последний, 
+// //     а наоборот, от последнего к первому. 
+
+// const reverse = str => {
+//     let i = str.length - 1;
+//     let result = '';
+
+//     while (i >= 0) {
+//       result = `${result}${str[i]}`;
+//       i--;
+//     }
+//     return result;
+//   };
