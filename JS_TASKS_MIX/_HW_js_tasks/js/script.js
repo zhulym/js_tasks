@@ -377,3 +377,96 @@
 //     }
 //     return result;
 //   };
+
+
+
+// // 28. Реализуйте функцию filterString(), принимающую на вход строку и символ, и возвращающую новую строку, в 
+// //     которой удален переданный символ во всех его позициях.
+
+// const filterString = (str, char) => {
+//     const arr = str.split('').filter(el => el !== char).join('');
+//     return arr;
+// }
+// console.log(filterString('If I look back I am lost', 'I'));
+
+
+// // 29. Напишите функцию makeItFunny(), которая принимает на вход строку и возвращает её копию, у которой каждый 
+// //     n-ный элемент переведен в верхний регистр. n – задается на входе в функцию.
+// //     Для определения каждого n-ного элемента понадобится остаток от деления %. Подумайте, как его можно использовать.
+
+// const makeItFunny = (str, num) => {
+//     let i = 0;
+//     let newStr = '';
+//     while (i < str.length) {
+
+//         if ((i + 1) % num === 0) {
+//             newStr += `${str[i].toUpperCase()}`;
+//         } else {
+//             newStr += str[i];
+//         }
+
+//         i++;
+//     }
+//     return newStr;
+// }
+
+
+// // !!!!!! 30. Задача поиска простых чисел. Напомним, что простое число — это число, которое делится без остатка только 
+// //     на себя и на единицу. Напомним, что простое число — это число, которое делится без остатка только на себя 
+// //     и на единицу.
+
+// const isPrime = (number) => {
+//     if (number < 2) {
+//         return false;
+//     }
+
+//     let divider = 2;
+
+//     while (divider <= number - 1) {
+//         if (number % divider === 0) {
+//             return false;
+//         }
+
+//         divider++;
+//     }
+
+//     return true;
+// }
+
+// console.log(isPrime(3)); //true
+// console.log(isPrime(4)); //false
+// console.log(isPrime(29)); //true
+
+
+// // 31. Реализуйте функцию hasChar(), которая проверяет (с учётом регистра), содержит ли строка указанную букву.
+// //     Функция принимает два параметра:
+
+// const hasChar = (str, char) => {
+//     let i = 0;
+//     while (i < str.length) {
+//         if (str[i] === char) {
+//             return true
+//         }
+//         i++;
+//     }
+
+//     return false
+// }
+
+// console.log(hasChar('Renly', 'R'));  // true
+// console.log(hasChar('Renly', 'r'));  // false
+
+
+
+// // 32. Реализуйте функцию encrypt(), которая принимает на вход исходную строку и возвращает строку по 
+// //     следующему алгоритму. Она бы брала текст и переставляла в нем каждые два подряд идущих символа.
+
+// const encrypt = str => {
+//     let newStr = '';
+//     for (let i = 0; i < str.length; i += 2) {
+//         newStr += `${str.charAt(i + 1)}${str.charAt(i)}`;
+//     }
+//     return newStr;
+// };
+
+// console.log(encrypt('attack')); // 'taatkc'
