@@ -1,4 +1,6 @@
 import MenuItem from './MenuItem'
+import Greeting from './Greeting/Greeting'
+
 
 const Header = (props) => {
 
@@ -13,6 +15,7 @@ const Header = (props) => {
           {transformItems}
         </ul>
       </nav>
+      < Greeting greetingName='' />
     </header>
   )
 }
