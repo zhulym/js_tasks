@@ -16,11 +16,11 @@ const App = () => {
   const min = 0
   const max = 100;
 
-
   return (
     <div className="App">
       <Header items={menuItems} />
       <RandomNumber min={min} max={max} />
+
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import MenuItem from './MenuItem'
 import Greeting from './Greeting/Greeting'
-
+import { React, useState, useEffect } from 'react';
 
 const Header = (props) => {
 
@@ -15,9 +15,10 @@ const Header = (props) => {
           {transformItems}
         </ul>
       </nav>
-      < Greeting greetingName='' />
+      < Greeting />
     </header>
   )
 }
 
 export default Header
+
