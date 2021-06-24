@@ -470,3 +470,75 @@
 // };
 
 // console.log(encrypt('attack')); // 'taatkc'
+
+
+
+// // 33. Find the greatest common divisor of two positive integers. The integers can be large, so you need to find 
+// //     a clever solution.
+// //     The inputs x and y are always greater or equal to 1, so the greatest common divisor will always be an integer 
+// //     that is also greater or equal to 1.
+// //     Test.assertEquals(mygcd(30,12),6)
+
+// const mygcd = (x, y) => {
+//     let i = 1;
+//     const allCommonDevisors = [];
+
+//     while (i <= Math.max(x, y)) {
+//         if (Number.isInteger(x / i) && Number.isInteger(y / i)) {
+//             allCommonDevisors.push(i);
+//         }
+//         i++;
+//     }
+
+//     return allCommonDevisors.sort((a, b) => a - b).reverse()[0];
+// }
+
+// console.log(mygcd(30, 12));
+
+
+
+// // 34.In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive 
+// //    integers less than or equal to n. For example: 5! = 5 * 4 * 3 * 2 * 1 = 120. By convention the value of 0! is 1.
+// //     Write a function to calculate factorial for a given input. If input is below 0 or above 12 throw an 
+// //      exception of type throw a RangeError (JavaScript)
+
+// const factorial = n => {
+//     if (n > 12){
+//       throw new RangeError('Введите число меньше 12!');
+//     }
+
+//     if (n === 1 || n === 0) {
+//       return 1;
+//     } else {
+//       return n * factorial(n-1);
+//     }
+//   }
+
+// console.log(factorial(3));
+
+
+
+// // 35. You get an array of numbers, return the sum of all of the positives ones.
+// //Example [1,-4,7,12] => 1 + 7 + 12 = 20
+
+// const positiveSum = arr => {
+//     const newArr = [];
+//     arr.forEach(el => (el > 0) ? newArr.push(el) : el);
+//     return newArr.reduce((a, b) => a + b);
+// }
+
+// console.log(positiveSum([-5, -1, -2, -3, -4]));
+
+
+
+// //36. Complete the method that takes a sequence of objects with two keys each: country or state, and capital. 
+// //    Keys may be symbols or strings.
+// //      The method should return an array of sentences declaring the state or country and its capital.
+
+// let mixed_capitals = [{ "state": 'Maine', capital: 'Augusta' }, { country: 'Spain', "capital": "Madrid" }];
+
+// const capital = capitals => {
+//     return capitals.map(obj => `The capital of ${obj.state || obj.country} is ${obj.capital}`);
+// }
+
+// console.log(capital(mixed_capitals[0]));
