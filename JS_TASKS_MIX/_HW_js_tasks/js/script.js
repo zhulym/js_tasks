@@ -585,3 +585,39 @@
 // }
 
 // console.log(findShort("bitcoin take over the world maybe who knows perhaps"));  //3
+
+
+
+// // 39. Your task is to return the sum of Triangular Numbers up-to-and-including the nth Triangular Number.
+// //     Triangular Number: "any of the series of numbers (1, 3, 6, 10, 15, etc.) obtained by continued summation of 
+// //     the natural numbers 1, 2, 3, 4, 5, etc."
+
+// const sumTriangularNumbers = n => {
+//     if (n <= 0) { return 0 };
+//     let sum = 0;
+//     for (let i = 1; i <= n; i++) {
+//         let j = i;
+//         while (j > 0) {
+//             sum += j;
+//             j--;
+//         }
+//     }
+//     return sum;
+// }
+
+// console.log(sumTriangularNumbers(4));
+
+
+
+// //40. Create a function that takes one positive three digit integer and rearranges its digits to get the 
+// //    maximum possible number. Assume that the argument is an integer. Return null if the argument is not valid.
+
+// const maxRedigit = n => {
+//     if (n <= 0 || n > 999 || n < 100 || n/n !== 1) { return null };
+//     const arr = n.toString().split('');
+//     const max = +(arr.sort((a, b) => a - b).reverse().join(''));
+//     return max;
+// };
+
+// console.log(maxRedigit(164));    // 641
+
