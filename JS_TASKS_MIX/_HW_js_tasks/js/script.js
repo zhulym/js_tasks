@@ -621,3 +621,138 @@
 
 // console.log(maxRedigit(164));    // 641
 
+
+
+// // 41. 
+
+// const maskify = n => {
+//     debugger;
+//     if (n.length <= 4) { return n };
+//     if (n === '') { return '' };
+//     const visible = n.slice(-4);
+//     let amountOfSymbols = n.length - 4;
+//     const arr = [];
+//     while (amountOfSymbols >= 1) {
+//         arr.push('#');
+//         amountOfSymbols--;
+//     }
+//     return `${arr.join('')}${visible}`
+// }
+
+// console.log(maskify('1646464645464'));
+
+
+
+// // 42. Из массива создать номар по шаблону
+// const a = [3, 1, 1, 1, 1, 1, 2, 2, 2, 8];
+
+// const createPhoneNumber = n => {
+//     const n1 = n.slice(0, 3).join('');
+//     const n2 = n.slice(4, 7).join('');
+//     const n3 = n.slice(-4).join('');
+//     return `(${n1}) ${n2}-${n3}`;
+// }
+
+// console.log(createPhoneNumber(a));  //(111) 111-1111
+
+
+
+// // 43. Отсортировать массив проверив первых два числа, меньшее должно быть первым
+// const a = [9, 7, 1, 2, 4, 6, 8];
+// const bubblesortOnce = a => {
+//     if (a[0] > a[1]) {
+//         let b = a.splice(0, 2).reverse();
+//         let c = a.splice(0, a.length - 1);
+//         console.log(b);
+//         console.log(c);
+//         return [...b, ...c];
+//     }
+//     return a;
+// }
+
+
+
+// // 44. Сортировать эл массива по возрасту
+// const arr = [
+//     { age: 83, name: 'joel' },
+//     { age: 46, name: 'roger' },
+//     { age: 99, name: 'vinny' },
+//     { age: 26, name: 'don' },
+//     { age: 74, name: 'brendan' }
+// ]
+// const orderPeople = function (people) {
+//     return people.sort((a, b) => a.age - b.age);
+// }
+
+// console.log(orderPeople(arr));
+
+
+
+// // 45. Вывести объект с указанием кто онлайн офлайн или ушел  (если время > 10мин)
+// //    {online: ['David'], offline: ['Lucy'], away: ['Bob']}   такой массив на выходе должен быть
+// const arr = [{
+//     username: 'Lucy',
+//     status: 'offline',
+//     lastActivity: 22
+// }, {
+//     username: 'WWW',
+//     status: 'offline',
+//     lastActivity: 22
+// },
+// {
+//     username: 'Bob',
+//     status: 'online',
+//     lastActivity: 104
+// }];
+
+// const whosOnline = friends => {
+
+//     if (friends === []) return {};
+//     const status = {
+//         online: [],
+//         offline: [],
+//         away: []
+//     }
+
+//     friends.forEach(el => {
+//         if (el.status === 'online' && el.lastActivity > 10) {
+//             status.away.push(el.username);
+//         } else if (el.status === 'offline') {
+//             status.offline.push(el.username);
+//         } else if (el.status === 'online') {
+//             status.online.push(el.username);
+//         }
+//     })
+
+//     for (const key in status) {
+//         if (status[key].length === 0) {
+//             delete status[key];
+//         }
+//     }
+
+//     return status;
+// }
+
+// console.log(whosOnline(arr));
+
+
+// // 46. Вернуть массив с элементами у которых все элементы одного типа
+// const someArr = [
+//     [123, 234, 432],
+//     ['', 'abc'],
+//     [],
+//     ['', 1],
+//     ['', '1'],
+// ];
+// const filterHomogenous = arr => {
+//     const filterArr = [];
+//     arr.filter(el => {
+//         const type = typeof el[0];
+//         if (type === "undefined") return;
+//         const result = el.every(a => typeof a === type);
+//         if (result) filterArr.push(el);
+//     })
+//     return filterArr;
+// }
+
+// console.log(filterHomogenous(someArr));
