@@ -756,3 +756,91 @@
 // }
 
 // console.log(filterHomogenous(someArr));
+
+
+// // 47. Your task is to implement the so-called 'towel sort' algorithm.
+// //    Following matrix should be 'sorted' to: [1, 2, 3, 6, 5, 4, 7, 8, 9 ]
+// const mat = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9],
+// ]
+
+// function towelSort(matrix) {
+//     const sorted = matrix.map((el, i) => (i !== 0 || i % 2 !== 0) ? el.reverse() : el);
+//     const result = [];
+//     sorted.forEach(el => el.forEach(e => result.push(e)));
+//     return result;
+// }
+
+// console.log(towelSort(mat));
+
+
+
+// // 48.In this Kata, you will be given two positive integers a and b and your task will be to apply the 
+// //    following operations:
+// // i) If a = 0 or b = 0, return [a,b]. Otherwise, go to step (ii);
+// // ii) If a ≥ 2*b, set a = a - 2*b, and repeat step (i). Otherwise, go to step (iii);
+// // iii) If b ≥ 2*a, set b = b - 2*a, and repeat step (i). Otherwise, return [a,b].
+
+// const solve = (a, b) => {
+//     debugger;
+//     if (a === 0 || b === 0) {
+//         return [a, b];
+//     } else if (a >= b) {
+//         a = a - 2 * b;
+//         return solve(a, b);
+//     } else if (b >= 2 * a) {
+//         b = b - 2 * a;
+//         return solve(a, b);
+//     } else {
+//         return [a, b];
+//     }
+// }
+
+// console.log(solve(2, 6));
+
+
+
+// // 49. Convert decimal numbers to binary. Enjoy! No cheating. No toString
+// const decToBin = d => {
+//     let result = [];
+//     while (d >= 1) {
+//         result.push(d % 2);
+//         d = Math.floor(d / 2);
+//     }
+//     return result.reverse().join('');
+// }
+
+// console.log(decToBin(31));
+//   // rules for decision http://ucheba-vmeste.blogspot.com/
+
+
+
+
+// // 50. Move the first letter of each word to the end of it, then add "ay" to the end of the word. 
+// //     Leave punctuation marks untouched. Знаки препинания точка воскл и вопрс ay не добавляется
+// //     Examples
+// //     pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
+// //     pigIt('Hello world !');     // elloHay orldway !
+
+// const pigIt = str => {
+//     const arr = str.split(' ');
+//     console.log(arr);
+
+//     const wordsArr = arr.map(el => {
+//         const firstLet = el.charAt(0);
+//         if (/^[A-Za-z]+$/.test(el)) {
+//             return [`${el.slice(1, el.length)}${firstLet}ay`];
+//         }
+//         return [el];
+//     })
+//     console.log(wordsArr);
+//     const almostReadyArr = wordsArr.map(el => el.join([]));
+//     console.log(almostReadyArr);
+//     return almostReadyArr.join(' ');
+// }
+
+// console.log(pigIt('Pig latin is cool !'));
+
+
