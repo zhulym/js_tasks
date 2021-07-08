@@ -844,3 +844,23 @@
 // console.log(pigIt('Pig latin is cool !'));
 
 
+
+
+// // 51. Переместить все нули в конец строки
+// const moveZeros = arr => {
+//     const arrZero = [];
+//     let i = 0;
+//     while (i < arr.length) {
+//         if (arr[i] === 0) {
+//             arrZero.push(arr[i]);
+//             arr.splice(i, 1);
+//             --i;
+//         }
+//         i++;
+//     }
+
+//     return [...arr, ...arrZero];
+// }
+
+// console.log(moveZeros([0, 0, 9, 1, 0, 1, 1, 3, 1, 9, 0, 0, 9, 0, 2, 0, 0, 0, 9, 0]));
+
