@@ -932,3 +932,72 @@
 //     [-25, 25, 25, 25, 25, 10],
 //     [-100, 100, 100, 100, 100, 100]
 // ]));
+
+
+
+// // 54. Convert Hash To An Array
+
+// const convertHashToArray = hash => {
+//     const arr = Object.entries(hash);
+//     const el = arr.shift();
+//     if (el === undefined) return [];
+//     arr.splice(1, 0, el)
+//     return arr;
+// }
+
+// console.log(convertHashToArray({ name: "Jeremy", age: 24, role: "Software Engineer" }));
+// console.log(convertHashToArray({}));
+
+
+
+// //55. Если в массиве а есть элемент из массива b то он должен быть удалён, вернуть нов массив
+
+// const arrayDiff = (a, b) => {
+//     if (a.length === 0) return [];
+//     if (b.length === 0) return a;
+//     const newArr = [];
+//     b.forEach((el) => a.forEach((aEl) => {
+//         if (el === aEl) {
+//             newArr.push(aEl);
+//         };
+//     }))
+
+//     return a.filter(el => !newArr.includes(el));
+// }
+
+// console.log(arrayDiff([], [4, 5]))
+// console.log(arrayDiff([1, 2, 3], [1, 2]))
+// console.log(arrayDiff([1, 2, 2], [2]))
+// console.log(arrayDiff([3, 4], [3]))
+// console.log(arrayDiff([1, 8, 2], []))
+
+
+// //55.  Найти число наименьшее совпадающее с индексом
+
+// const indexEqualsValue = a => {
+
+//     let minI = 0;
+//     let maxI = a.length - 1;
+//     while (minI < maxI) {
+//         let i = Math.floor((maxI + minI) / 2);
+//         if (i <= a[i]) {
+//             maxI = i;
+//         } else {
+//             minI = i + 1;
+//         }
+//     }
+
+//     return (a[maxI] === maxI) ? maxI : -1;
+
+//     /*===== duration  1945 ms > 150 ms ====*/
+//     //     let i = 0
+//     //     while (i <= a.length) {
+//     //         if (a[i] === i) {
+//     //            return i;
+//     //         }
+//     //         i++;
+//     //     }
+//     //     return -1;
+// }
+
+// console.log(indexEqualsValue([-5, 0, 5, 3, 10, 5, 20, 35, 74, 0, 5]));
