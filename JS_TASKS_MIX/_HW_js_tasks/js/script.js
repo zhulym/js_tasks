@@ -1001,3 +1001,37 @@
 // }
 
 // console.log(indexEqualsValue([-5, 0, 5, 3, 10, 5, 20, 35, 74, 0, 5]));
+
+
+
+// // 56. НЕ РЕШЁННАЯ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// const nextPrime = n => {
+//     debugger;
+//     // function checkNum(num) {
+//     //     for (let k = 2; k <= num; k++) {
+//     //         if (num / k === 1) {
+//     //             return num;
+//     //         }
+
+//     //     }    
+//     // }
+//     for (let i = n + 1; i < Math.pow(10, 12); i++)
+//         for (let j = 2; j <= i; j++) {
+//             if (Number.isInteger(i / j)) {
+
+//             }
+
+
+//         }
+//     return i;
+// }
+
+// console.log(nextPrime(13));
+// console.log(nextPrime(2971));
+
+
+
+// 57. 
+
+
