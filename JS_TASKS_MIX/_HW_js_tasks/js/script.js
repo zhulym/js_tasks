@@ -1034,4 +1034,105 @@
 
 // 57. 
 
+// const calc = expr => {
+//     // let elements = expr.replace(/\s/g, '').split('');  // ["2", "+", "(", "(", "3", "6", "-", "3", "*", "2", ")", "*", "4", ")", "*", "3"]
+//     // let newExpr = [...elements];
 
+
+//     // let num = newExpr.join('');
+
+
+
+
+
+//     function countExprInBrackets(str) {                        // функция вычисления подвыражения
+//         return Function(`'use strict'; return (${str})`)()
+//     }
+
+//     return countExprInBrackets(expr);
+// }
+
+// console.log(calc('2 + ((36 - 3 * 2) * 4) * 3'));
+// console.log(calc('2 * (6 + 2) * 2'));
+
+
+
+
+const calc = expr => {
+    let numbers;
+    let elements = expr.replace(/\s/g, '').split('');  // ["2", "+", "(", "(", "3", "6", "-", "3", "*", "2", ")", "*", "4", ")", "*", "3"]
+    let arr = [];
+    debugger;
+    elements.forEach((el, i, arr) => {
+        if (typeof +el === 'number' && +el !== NaN) {
+            let subArr = elements.slice(i + 1, elements.length - 1);
+            let fullNum = [el];
+            for (let j = 0; j < subArr.length; j++) {
+                if (typeof +subArr[j] === 'number' && +subArr[j] === NaN) {
+                    fullNum.push(subArr[j])
+                } else {
+                    i++;
+                    return;
+                }
+            }
+
+
+        } else {
+            arr.push(el);
+        }
+    })
+
+
+
+
+
+
+    let newExpr = [...elements];
+
+    for (let i = newExpr.length; i > 1; i--) {
+        debugger;
+        // if (newExpr.includes('(')) {
+        //     let num = newExpr.join('');
+        //     return countExprInBrackets(num);
+        // }
+        newExpr = [...elements];
+        let bracket = checkEl(newExpr);            //  [2, 3, 10]
+
+        let subExpr = elements.slice(bracket[bracket.length - 3], bracket[bracket.length - 1]);  // достали выражение по индексам ["(", "(", "3", "6", "-", "3", "*", "2"]
+
+        numbers = subExpr.filter(el => (el !== "(" || el === ")"));  // избавились от лишних скобок ["3", "6", "-", "3", "*", "2"]
+
+        let arrNumWithOperators = numbers.join('');                  // получили подвыражение'36-3*2'
+
+        let result = countExprInBrackets(arrNumWithOperators);
+        let amounElemForDelete = (bracket[bracket.length - 1] - bracket[bracket.length - 2]) + 1
+        elements.splice(bracket[bracket.length - 2], amounElemForDelete, result);    // вырезаем вычисленное и вставляем предыдущий результат
+    }
+
+    console.log(elements);
+    console.log(bracket);
+    console.log(subExpr);
+    console.log(numbers);
+    console.log(arrNumWithOperators);
+    console.log(result);
+
+    function checkEl(expression) {      // определили индексы скобок для вычленения выражений в скобках
+        let brackets = [];
+        for (let i = 0; i < expression.length; i++) {
+            if (expression[i] === "(") {
+                brackets.push(i);
+            }
+            if (expression[i] === ")") {
+                brackets.push(i);
+                return brackets;
+            }
+        }
+    };
+
+    function countExprInBrackets(str) {                        // функция вычисления подвыражения
+        return Function(`'use strict'; return (${str})`)()
+    }
+}
+
+console.log(calc('2 + ((36 - 3 * 2) * 4) * 3'));
+console.log(calc('2 * (6 + 2) * 2'));
