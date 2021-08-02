@@ -1140,8 +1140,9 @@
 //     if (n === 0) return 2;
 //     let num = null;
 //     let num2 = null;
+
 //     for (let i = n + 1; i < Math.pow(10, 12); i++) {
-//         for (let j = i - 1; j > 1; j--) {
+//         for (let j = 2; j <= Math.sqrt(i); j++) {
 //             if (i % j === 0) {
 //                 num = j;
 //                 break;
@@ -1156,8 +1157,10 @@
 //     return num2;
 // }
 
-// console.log(nextPrime(0));
+// console.log(nextPrime(11));
 
 // // Test.assertEquals(nextPrime(0), 2);
 // //     Test.assertEquals(nextPrime(29), 31);
 // //     Test.assertEquals(nextPrime(5), 7);
+
+
