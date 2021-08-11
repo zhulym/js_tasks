@@ -1004,135 +1004,142 @@
 
 
 
-// // 56. НЕ РЕШЁННАЯ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// // 56.  Get the next prime number!
+// //      You will get a number n (>= 0) and your task is to find the next prime number.
+// //      Make sure to optimize your code: there will numbers tested up to about 10^12.
+// //      Examples
+// //      5   =>  7
+// //      12  =>  13
 
 // const nextPrime = n => {
-//     debugger;
-//     // function checkNum(num) {
-//     //     for (let k = 2; k <= num; k++) {
-//     //         if (num / k === 1) {
-//     //             return num;
-//     //         }
+//     if (n === 0) return 2;
+//     let num = null;
+//     let num2 = null;
 
-//     //     }    
-//     // }
-//     for (let i = n + 1; i < Math.pow(10, 12); i++)
-//         for (let j = 2; j <= i; j++) {
-//             if (Number.isInteger(i / j)) {
+//     for (let i = n + 1; i < Math.pow(10, 12); i++) {
+//         for (let j = 2; j <= Math.sqrt(i); j++) {
+//             if (i % j === 0) {
+//                 num = j;
+//                 break;
+//             }
+//             num = null;
+//         }
+//         if (!num) {
+//             num2 = i;
+//             break;
+//         }
+//     }
+//     return num2;
 
+//     console.log(nextPrime(13));
+//     console.log(nextPrime(2971));
+
+
+
+//     // 57.  Calculator
+
+//     const calc = expr => {
+//         let result = expr.split(' ').join('');
+//         let bracketsIdx = [];
+
+//         while (result.length > 0) {
+//             bracketsIdx = result.split('').filter(el => el === '(' || el === ')')
+//             if (bracketsIdx.length % 2 !== 0 || bracketsIdx.length === 1) throw "ExpressionError: Brackets must be paired";
+//             bracketsIdx = [];
+//             findBracketsIdx(result);
+
+//             if (bracketsIdx.length === 0) {
+//                 const result = countPartOfExpr();
+//                 if (result === Infinity) throw "TypeError: Division by zero."
+//                 return +result.toFixed(4);
 //             }
 
+//             let replace = result.slice(bracketsIdx[1], bracketsIdx[0] + 1);
+//             result = result.replace(replace, countPartOfExpr());
+//             bracketsIdx = [];
+//             if (result === Infinity) throw "TypeError: Division by zero."
+//         };
 
+//         function findBracketsIdx(expression) {               // находим индексы внутренних скобок и по ним вычленяем выражения
+//             for (let i = 0; i < expression.length; i++) {
+//                 if (expression[i] === ')') {
+//                     bracketsIdx.push(i);
+//                     for (let j = i; j >= 0; j--) {
+//                         if (expression[j] === '(') {
+//                             bracketsIdx.push(j);
+//                             break;
+//                         }
+//                     }
+//                     break;
+//                 }
+//             }
 //         }
-//     return i;
-// }
 
-// console.log(nextPrime(13));
-// console.log(nextPrime(2971));
+//         function countPartOfExpr() {
+//             let getExpr = result.slice(bracketsIdx[1] + 1, bracketsIdx[0]);    // "36-3*2/6+5"
+//             let operators = [];
+//             let arrNum;
 
+//             function findNum(num) {               // получили массив чисел без операторов ["36", "3", "2", "6", "5"]
+//                 arrNum = num.split('*');
+//                 function divideArr(operator) {
+//                     arrNum = arrNum.map(el => el.split(operator));
+//                     arrNum = arrNum.flat();
+//                 }
+//                 divideArr('/');               // поочерёдно мутируем массив пока не рассплитится по всем операторам
+//                 divideArr('+');
+//                 divideArr('-');
+//             }
 
+//             findNum(getExpr);
 
-// 57. 
-
-// const calc = expr => {
-//     // let elements = expr.replace(/\s/g, '').split('');  // ["2", "+", "(", "(", "3", "6", "-", "3", "*", "2", ")", "*", "4", ")", "*", "3"]
-//     // let newExpr = [...elements];
-
-
-//     // let num = newExpr.join('');
-
-
-
-
-
-//     function countExprInBrackets(str) {                        // функция вычисления подвыражения
-//         return Function(`'use strict'; return (${str})`)()
-//     }
-
-//     return countExprInBrackets(expr);
-// }
-
-// console.log(calc('2 + ((36 - 3 * 2) * 4) * 3'));
-// console.log(calc('2 * (6 + 2) * 2'));
-
-
-// const calc = expr => {
-//     let numbers;
-//     let elements = expr.replace(/\s/g, '').split('');  // ["2", "+", "(", "(", "3", "6", "-", "3", "*", "2", ")", "*", "4", ")", "*", "3"]
-//     let arr = [];
-//     debugger;
-//     elements.forEach((el, i, arr) => {
-//         if (typeof +el === 'number' && +el !== NaN) {
-//             let subArr = elements.slice(i + 1, elements.length - 1);
-//             let fullNum = [el];
-//             for (let j = 0; j < subArr.length; j++) {
-//                 if (typeof +subArr[j] === 'number' && +subArr[j] === NaN) {
-//                     fullNum.push(subArr[j])
-//                 } else {
-//                     i++;
-//                     return;
+//             for (let i = 0; i < getExpr.length; i++) {  // получили массив операторов ["-", "*", "/", "+"]
+//                 if (getExpr[i] == '*' || getExpr[i] == '/' || getExpr[i] == '+' || getExpr[i] == '-') {
+//                     operators.push(getExpr[i]);
 //                 }
 //             }
 
+//             for (let i = 0; i < operators.length; i++) {
+//                 const operatorPosition = i + i + 1;         // находим позицию операторов в исходном выражении  ["36", "3", "2", "6", "5"] ,  ["-", "*", "/", "+"]
+//                 arrNum.splice(operatorPosition, 0, operators[i]);   // вставляем операторы в выражение каждый след оператор будет в позиции i+i+1     0-1  1-3  2-5  3-7
+//             }
+//             // ["36", "-", "3", "*", "2", "/", "6", "+", "5"] 
+//             for (let i = 1; i < arrNum.length; i++) {
+//                 debugger
+//                 if (arrNum[i] === '*') {
+//                     let result1 = (arrNum[i - 1] * arrNum[i + 1]);
+//                     arrNum.splice(i - 1, 3, result1);
+//                     i = 0;
+//                 }
+//                 if (arrNum[i] === '/') {
+//                     let result1 = (arrNum[i - 1] / arrNum[i + 1]);
+//                     arrNum.splice(i - 1, 3, result1);
+//                     i = 0;
+//                 }
+//             }
 
-//         } else {
-//             arr.push(el);
+//             for (let i = 1; i < arrNum.length; i++) {
+//                 if (arrNum[i] === '+') {
+//                     let result1 = +(arrNum[i - 1]) + +(arrNum[i + 1]);
+//                     arrNum.splice(i - 1, 3, result1);
+//                     i = 0;
+//                 }
+//                 if (arrNum[i] === '-') {
+//                     let result1 = arrNum[i - 1] - arrNum[i + 1];
+//                     arrNum.splice(i - 1, 3, result1);
+//                     i = 0;
+//                 }
+//             }
+//             return Number(arrNum.toString());
 //         }
-//     })
-
-
-
-//     let newExpr = [...elements];
-
-//     for (let i = newExpr.length; i > 1; i--) {
-//         debugger;
-//         // if (newExpr.includes('(')) {
-//         //     let num = newExpr.join('');
-//         //     return countExprInBrackets(num);
-//         // }
-//         newExpr = [...elements];
-//         let bracket = checkEl(newExpr);            //  [2, 3, 10]
-
-//         let subExpr = elements.slice(bracket[bracket.length - 3], bracket[bracket.length - 1]);  // достали выражение по индексам ["(", "(", "3", "6", "-", "3", "*", "2"]
-
-//         numbers = subExpr.filter(el => (el !== "(" || el === ")"));  // избавились от лишних скобок ["3", "6", "-", "3", "*", "2"]
-
-//         let arrNumWithOperators = numbers.join('');                  // получили подвыражение'36-3*2'
-
-//         let result = countExprInBrackets(arrNumWithOperators);
-//         let amounElemForDelete = (bracket[bracket.length - 1] - bracket[bracket.length - 2]) + 1
-//         elements.splice(bracket[bracket.length - 2], amounElemForDelete, result);    // вырезаем вычисленное и вставляем предыдущий результат
+//         return result.toFixed(4);
 //     }
 
-//     console.log(elements);
-//     console.log(bracket);
-//     console.log(subExpr);
-//     console.log(numbers);
-//     console.log(arrNumWithOperators);
-//     console.log(result);
+// console.log(calc(" 52 * 62 * (  61 + 12 - 14 * 79  ) + 39 "));
+// // console.log(calc("1 + 2) * 3"));
+// // console.log(calc("((1 + 2) * 3"));
+// // console.log(calc('36 - 3 * 2 / 6 + 5 + 3 * 3'));
 
-//     function checkEl(expression) {      // определили индексы скобок для вычленения выражений в скобках
-//         let brackets = [];
-//         for (let i = 0; i < expression.length; i++) {
-//             if (expression[i] === "(") {
-//                 brackets.push(i);
-//             }
-//             if (expression[i] === ")") {
-//                 brackets.push(i);
-//                 return brackets;
-//             }
-//         }
-//     };
-
-//     function countExprInBrackets(str) {                        // функция вычисления подвыражения
-//         return Function(`'use strict'; return (${str})`)()
-//     }
-// }
-
-// console.log(calc('2 + ((36 - 3 * 2) * 4) * 3'));
-// console.log(calc('2 * (6 + 2) * 2'));
-
-///======================================================================================
 
 
 // // 58. На найти следующее ближайшее число которое делится на само себя и на единицу
@@ -1163,4 +1170,10 @@
 // //     Test.assertEquals(nextPrime(29), 31);
 // //     Test.assertEquals(nextPrime(5), 7);
 
+
+
+// 59. Complete it so that passing in RGB decimal values will result in a hexadecimal 
+//     representation being returned. Valid decimal values for RGB are 0 - 255. Any values that fall out of that range 
+//     must be rounded to the closest valid value.
+//     Note: Your answer should always be 6 characters long, the shorthand with 3 will not work here.
 
