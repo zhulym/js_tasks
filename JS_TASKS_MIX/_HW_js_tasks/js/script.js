@@ -1172,8 +1172,36 @@
 
 
 
-// 59. Complete it so that passing in RGB decimal values will result in a hexadecimal 
-//     representation being returned. Valid decimal values for RGB are 0 - 255. Any values that fall out of that range 
-//     must be rounded to the closest valid value.
-//     Note: Your answer should always be 6 characters long, the shorthand with 3 will not work here.
+// // 59. Complete it so that passing in RGB decimal values will result in a hexadecimal 
+// //     representation being returned. Valid decimal values for RGB are 0 - 255. Any values that fall out of that range 
+// //     must be rounded to the closest valid value.
+// //     Note: Your answer should always be 6 characters long, the shorthand with 3 will not work here.
 
+// const rgb = (r, g, b) => {
+//     if (r > 255) r = 255;
+//     if (g > 255) g = 255;
+//     if (b > 255) b = 255;
+
+//     function convertPart(part) {
+//         const hexLetters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+//         let hexPart = '';
+//         if (part < 0) part = 0;
+
+//         if (part % 16 === 0) {
+//             return hexPart += `${hexLetters[part / 16]}0`;
+//         }
+
+//         if (part < 16) {
+//             return hexPart += `0${hexLetters[part % 16]}`;
+//         }
+
+//         let n2 = part % 16;
+//         let n1 = Math.floor(part / 16)
+//         return hexPart += `${hexLetters[n1]}${hexLetters[n2]}`;
+
+//     }
+//     return `${convertPart(r)}${convertPart(g)}${convertPart(b)}`;
+// }
+
+
+// console.log(rgb(150, 246, 160));
