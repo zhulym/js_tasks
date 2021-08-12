@@ -1,2 +1,2 @@
-**JS-PROJECTS**
+# JS-PROJECTS
 
