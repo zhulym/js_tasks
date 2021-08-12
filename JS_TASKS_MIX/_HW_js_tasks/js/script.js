@@ -1205,3 +1205,27 @@
 
 
 // console.log(rgb(150, 246, 160));
+
+
+
+// // 60. Найти выигрышный билет
+// //     на входе массив [ [ 'ABC', 65 ], [ 'HGR', 74 ], [ 'BYHT', 74 ] ]  и число
+// //     если в строке код символа совпадает с числом то тогда получаем одно очко
+// //     пройтись по всем подмассивам собрать очки и сравнить с win, если >= win то вывести winner иначе looser
+
+// const bingo = (ticket, win) => {
+//     let count = 0;
+//     ticket.forEach(el => {
+//         el[0].split('').forEach(e => {
+//             if (e.charCodeAt() === el[1]) {
+//                 count++;
+//                 return;
+//             }
+//         });
+//     });
+
+//     return count >= win ? 'Winner!' : 'Loser!';
+// }
+
+// console.log(bingo([['RFARE', 82], ['FFHB', 70], ['ILGHJLCJ', 75]], 3));
+// console.log(bingo([['JSLBZL', 73], ['FDIFZCFL', 70]], 2));
