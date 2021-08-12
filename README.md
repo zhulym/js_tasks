@@ -1,2 +1,2 @@
-# JS-PROJECTS
+# js_tasks
 
