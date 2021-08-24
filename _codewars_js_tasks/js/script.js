@@ -291,13 +291,13 @@
 // //     обрабатывать эту ситуацию, чтобы слеш не дублировался.
 // //     Примеры вызова:
 
-// const buildUrl = (adress, domen) => {
+// const buildUrl = (address, domain) => {
 //     // debugger;
-//     if (!adress.startsWith('/')) {
-//         adress = `/${adress}`;
+//     if (!address.startsWith('/')) {
+//         address = `/${address}`;
 //     }
 
-//     return `https://${domen}${adress}`;
+//     return `https://${domain}${address}`;
 // }
 
 // console.log(buildUrl('/pages/about', 'vk.com'));
@@ -705,7 +705,7 @@
 //     lastActivity: 104
 // }];
 
-// const whosOnline = friends => {
+// const whoOnline = friends => {
 
 //     if (friends === []) return {};
 //     const status = {
@@ -733,7 +733,7 @@
 //     return status;
 // }
 
-// console.log(whosOnline(arr));
+// console.log(whoOnline(arr));
 
 
 // // 46. Вернуть массив с элементами у которых все элементы одного типа
@@ -1036,106 +1036,150 @@
 
 
 
-//     // 57.  Calculator
+// // 57.  Calculator
 
-//     const calc = expr => {
-//         let result = expr.split(' ').join('');
-//         let bracketsIdx = [];
+// const calc = expr => {
+//   let result = expr.split(' ').join('');
+//   let bracketsIdx = [];
+//   bracketsIdx = result.split('').filter(el => el === '(' || el === ')')
 
-//         while (result.length > 0) {
-//             bracketsIdx = result.split('').filter(el => el === '(' || el === ')')
-//             if (bracketsIdx.length % 2 !== 0 || bracketsIdx.length === 1) throw "ExpressionError: Brackets must be paired";
-//             bracketsIdx = [];
-//             findBracketsIdx(result);
+//   if (bracketsIdx.length % 2 !== 0
+//     || bracketsIdx.length === 1
+//     || bracketsIdx[0] === ')'
+//     || !bracketsIdx.includes(')') && bracketsIdx.length !== 0
+//     || !bracketsIdx.includes('(') && bracketsIdx.length !== 0) {
+//     throw "ExpressionError: Brackets must be paired";
+//   }
 
-//             if (bracketsIdx.length === 0) {
-//                 const result = countPartOfExpr();
-//                 if (result === Infinity) throw "TypeError: Division by zero."
-//                 return +result.toFixed(4);
-//             }
+//   while (result.length > 0) {
+//     bracketsIdx = [];
+//     findBracketsIdx(result);
 
-//             let replace = result.slice(bracketsIdx[1], bracketsIdx[0] + 1);
-//             result = result.replace(replace, countPartOfExpr());
-//             bracketsIdx = [];
-//             if (result === Infinity) throw "TypeError: Division by zero."
-//         };
-
-//         function findBracketsIdx(expression) {               // находим индексы внутренних скобок и по ним вычленяем выражения
-//             for (let i = 0; i < expression.length; i++) {
-//                 if (expression[i] === ')') {
-//                     bracketsIdx.push(i);
-//                     for (let j = i; j >= 0; j--) {
-//                         if (expression[j] === '(') {
-//                             bracketsIdx.push(j);
-//                             break;
-//                         }
-//                     }
-//                     break;
-//                 }
-//             }
-//         }
-
-//         function countPartOfExpr() {
-//             let getExpr = result.slice(bracketsIdx[1] + 1, bracketsIdx[0]);    // "36-3*2/6+5"
-//             let operators = [];
-//             let arrNum;
-
-//             function findNum(num) {               // получили массив чисел без операторов ["36", "3", "2", "6", "5"]
-//                 arrNum = num.split('*');
-//                 function divideArr(operator) {
-//                     arrNum = arrNum.map(el => el.split(operator));
-//                     arrNum = arrNum.flat();
-//                 }
-//                 divideArr('/');               // поочерёдно мутируем массив пока не рассплитится по всем операторам
-//                 divideArr('+');
-//                 divideArr('-');
-//             }
-
-//             findNum(getExpr);
-
-//             for (let i = 0; i < getExpr.length; i++) {  // получили массив операторов ["-", "*", "/", "+"]
-//                 if (getExpr[i] == '*' || getExpr[i] == '/' || getExpr[i] == '+' || getExpr[i] == '-') {
-//                     operators.push(getExpr[i]);
-//                 }
-//             }
-
-//             for (let i = 0; i < operators.length; i++) {
-//                 const operatorPosition = i + i + 1;         // находим позицию операторов в исходном выражении  ["36", "3", "2", "6", "5"] ,  ["-", "*", "/", "+"]
-//                 arrNum.splice(operatorPosition, 0, operators[i]);   // вставляем операторы в выражение каждый след оператор будет в позиции i+i+1     0-1  1-3  2-5  3-7
-//             }
-//             // ["36", "-", "3", "*", "2", "/", "6", "+", "5"] 
-//             for (let i = 1; i < arrNum.length; i++) {
-//                 debugger
-//                 if (arrNum[i] === '*') {
-//                     let result1 = (arrNum[i - 1] * arrNum[i + 1]);
-//                     arrNum.splice(i - 1, 3, result1);
-//                     i = 0;
-//                 }
-//                 if (arrNum[i] === '/') {
-//                     let result1 = (arrNum[i - 1] / arrNum[i + 1]);
-//                     arrNum.splice(i - 1, 3, result1);
-//                     i = 0;
-//                 }
-//             }
-
-//             for (let i = 1; i < arrNum.length; i++) {
-//                 if (arrNum[i] === '+') {
-//                     let result1 = +(arrNum[i - 1]) + +(arrNum[i + 1]);
-//                     arrNum.splice(i - 1, 3, result1);
-//                     i = 0;
-//                 }
-//                 if (arrNum[i] === '-') {
-//                     let result1 = arrNum[i - 1] - arrNum[i + 1];
-//                     arrNum.splice(i - 1, 3, result1);
-//                     i = 0;
-//                 }
-//             }
-//             return Number(arrNum.toString());
-//         }
-//         return result.toFixed(4);
+//     if (bracketsIdx.length === 0) {
+//       const result = countPartOfExpr();
+//       if (result === Infinity) throw "TypeError: Division by zero."
+//       return +result.toFixed(4);
 //     }
 
-// console.log(calc(" 52 * 62 * (  61 + 12 - 14 * 79  ) + 39 "));
+//     let replace = result.slice(bracketsIdx[1], bracketsIdx[0] + 1);
+//     result = result.replace(replace, countPartOfExpr());
+//     bracketsIdx = [];
+//     if (result === Infinity) throw "TypeError: Division by zero."
+//   };
+
+//   function findBracketsIdx(expression) {               // находим индексы внутренних скобок и по ним вычленяем выражения
+//     for (let i = 0; i < expression.length; i++) {
+//       if (expression[i] === ')') {
+//         bracketsIdx.push(i);
+//         for (let j = i; j >= 0; j--) {
+//           if (expression[j] === '(') {
+//             bracketsIdx.push(j);
+//             break;
+//           }
+//         }
+//         break;
+//       }
+//     }
+//   }
+
+//   function countPartOfExpr() {
+//     let getExpr = result.slice(bracketsIdx[1] + 1, bracketsIdx[0]);    // "36-3*2/6+5"
+//     let operators = [];
+//     let arrNum;
+
+//     function findNum(num) {               // получили массив чисел без операторов ["36", "3", "2", "6", "5"]
+//       arrNum = num.split('*');
+//       function divideArr(operator) {
+//         arrNum = arrNum.map(el => el.split(operator));
+//         arrNum = arrNum.flat();
+//       }
+//       divideArr('/');               // поочерёдно мутируем массив пока не рассплитится по всем операторам
+//       divideArr('+');
+//       divideArr('-');
+//     }
+
+//     findNum(getExpr);
+
+//     for (let i = 0; i < getExpr.length; i++) {  // получили массив операторов ["-", "*", "/", "+"]
+//       if (getExpr[i] == '*' || getExpr[i] == '/' || getExpr[i] == '+' || getExpr[i] == '-') {
+//         operators.push(getExpr[i]);
+//       }
+//     }
+
+//     for (let i = 0; i < operators.length; i++) {
+//       const operatorPosition = i + i + 1;         // находим позицию операторов в исходном выражении  ["36", "3", "2", "6", "5"] ,  ["-", "*", "/", "+"]
+//       arrNum.splice(operatorPosition, 0, operators[i]);   // вставляем операторы в выражение каждый след оператор будет в позиции i+i+1     0-1  1-3  2-5  3-7
+//     }
+//     // ["36", "-", "3", "*", "2", "/", "6", "+", "5"] 
+
+//     arrNum = arrNum.filter(el => el !== '');         // убрать возможные пустые строки в массиве (появляются когда промежуточный результат отрицательный)
+
+//     for (let i = 1; i < arrNum.length; i++) {
+//       debugger
+//       if (arrNum[0] === '-') {
+//         arrNum.splice(0, 2, -(arrNum[1]));
+//       }
+
+//       if (arrNum[i] === '*') {
+//         if (arrNum[i + 1] === '-') {
+//           let result1 = -(arrNum[i - 1] * arrNum[i + 2]);
+//           arrNum.splice(i - 1, 4, result1);
+//         } else {
+//           let result1 = (arrNum[i - 1] * arrNum[i + 1]);
+//           arrNum.splice(i - 1, 3, result1);
+//         }
+//         i = 0;
+//       }
+
+//       if (arrNum[i] === '/') {
+//         if (arrNum[i + 1] === '-') {
+//           let result1 = -(arrNum[i - 1] / arrNum[i + 2]);
+//           if (result1 === Infinity) throw "TypeError: Division by zero.";
+//           arrNum.splice(i - 1, 4, result1);
+//         } else {
+//           let result1 = (arrNum[i - 1] / arrNum[i + 1]);
+//           if (result1 === Infinity) throw "TypeError: Division by zero.";
+//           arrNum.splice(i - 1, 3, result1);
+//         }
+//         i = 0;
+//       }
+//     }
+
+//     for (let i = 1; i < arrNum.length; i++) {
+//       if (arrNum[0] === '-') {
+//         arrNum.splice(0, 2, -(arrNum[1]));
+//       }
+
+//       if (arrNum[i] === '+') {
+//         if (arrNum[i + 1] === '-') {
+//           let result1 = (arrNum[i - 1] - arrNum[i + 2]);
+//           arrNum.splice(i - 1, 4, result1);
+//         } else {
+//           let result1 = +(arrNum[i - 1]) + +(arrNum[i + 1]);
+//           arrNum.splice(i - 1, 3, result1);
+//         }
+//         i = 0;
+//       }
+
+//       if (arrNum[i] === '-') {
+//         if (arrNum[i + 1] === '-') {
+//           let result1 = +(+(arrNum[i - 1]) + +(arrNum[i + 2]));
+//           arrNum.splice(i - 1, 4, result1);
+//         } else {
+//           let result1 = arrNum[i - 1] - arrNum[i + 1];
+//           arrNum.splice(i - 1, 3, result1);
+//         }
+//         i = 0;
+//       }
+//     }
+//     return Number(arrNum.toString());
+//   }
+//   return result.toFixed(4);
+// }
+
+// // console.log(calc("1 + 2) * 3"));
+// // console.log(calc("((1 + 2) * 3"));
+// console.log(calc(" (  36 + 78 + (  43 / 89 - 57 / (  64 + 98 / 57 - 24 - 47  )  ) * 56  ) - (  (  29 - 9 / 76 * 99 - 29  ) * 98 / 11  ) * 31 "));
 // // console.log(calc("1 + 2) * 3"));
 // // console.log(calc("((1 + 2) * 3"));
 // // console.log(calc('36 - 3 * 2 / 6 + 5 + 3 * 3'));
@@ -1229,3 +1273,180 @@
 
 // console.log(bingo([['RFARE', 82], ['FFHB', 70], ['ILGHJLCJ', 75]], 3));
 // console.log(bingo([['JSLBZL', 73], ['FDIFZCFL', 70]], 2));
+
+
+// // 61. codewars:  the-deca-tree
+// function tree(trunks) {
+//   this.trunks = trunks;
+//   this.branches = trunks * 10;
+//   this.twigs = trunks * 100;
+//   this.leaves = trunks * 1000;
+// }
+
+// let myTree = new tree(10);
+// tree.prototype.chopLeaf = function (n) {
+//   this.leaves = this.leaves - n > 0 ? this.leaves - n : 0;
+// }
+// tree.prototype.chopTwig = function (n) {
+//   this.twigs = this.twigs - n > 0 ? this.twigs - n : 0;
+//   this.chopLeaf(n * 10);
+// }
+// tree.prototype.chopBranch = function (n) {
+//   this.branches = this.branches - n > 0 ? this.branches - n : 0;
+//   this.chopTwig(n * 10);
+// }
+// tree.prototype.chopTrunk = function (n) {
+//   this.trunks = this.trunks - n > 0 ? this.trunks - n : 0;
+//   this.chopBranch(n * 10);
+// }
+
+// tree.prototype.describe = function () {
+//   return `This tree has ${this.trunks} trunks, ${this.branches} branches, ${this.twigs} twigs and ${this.leaves} leaves.`
+// }
+
+// myTree.chopTrunk(5);
+
+// console.log(myTree)
+
+
+
+// // 62. 
+
+// let TreeNode = function (value, left, right) {
+//   this.value = value;
+//   this.left = left;
+//   this.right = right;
+// };
+
+// function maxSum(root) {
+//   if (!root) return 0;
+//   return root.value + Math.max(maxSum(root.left), maxSum(root.right));
+// }
+
+// const root = new TreeNode(5, new TreeNode(-22, new TreeNode(9), new TreeNode(50)), new TreeNode(11, new TreeNode(9), new TreeNode(2)));
+
+
+// console.log(maxSum(root));
+
+
+
+// // 63. Guessing game. 
+
+// class GuessingGame {
+//   constructor() {
+//     this.min = '';
+//     this.max = '';
+//   }
+
+//   setRange(min, max) {
+//     this.min = min;
+//     this.max = max;
+//   }
+
+//   guess() {
+//     return Math.floor((this.max - this.min) / 2);
+//   }
+
+//   lower() {
+//     this.max = this.guess();
+//   }
+
+//   greater() {
+//     this.min = this.guess();
+//   }
+// }
+
+// const number = 279;
+
+// const game = new GuessingGame();
+// console.log(game);
+
+// let game2 = game.setRange(0, 3445)
+// console.log(game2)
+
+
+// let result = game.guess();
+// console.log(result)
+
+
+
+// // 64. На входе набор цифр (1,15,4,2,1,48,65,1,2,3,7,12,15) отсортировать до вида
+// //      (1,3-5,6,7,8-15)
+
+
+// let str = [];
+// while (str.length < 99) {
+//   let num = Math.floor(Math.random() * (1000 - 0 + 1)) + 0;
+//   str.push(num);
+// }
+
+// function solve(input) {
+//   const uniqArr = [...new Set(input.split(','))].sort((a, b) => a - b);
+//   let tempArr = [];
+//   let sortedArr = [];
+
+//   for (let i = 0; i < uniqArr.length; i++) {
+
+//     if (i === uniqArr.length) {
+//       sortedArr.push(uniqArr[i].length - 1);
+//     }
+
+//     if (+uniqArr[i] !== +uniqArr[i + 1] - 1) {
+//       sortedArr.push(uniqArr[i]);
+//     }
+
+//     if (+uniqArr[i] === +uniqArr[i + 1] - 1) {
+//       tempArr.push(uniqArr[i]);
+//       for (let j = i + 1; j < uniqArr.length; j++) {
+//         if (+uniqArr[j] !== +uniqArr[j + 1] - 1) {
+//           tempArr.push(uniqArr[j]);
+//           tempArr.push(j);
+//         }
+//       }
+//       sortedArr.push(`${tempArr[0]}-${tempArr[1]}`);
+//       i = tempArr[2];
+//     }
+
+//     tempArr = [];
+
+//   }
+//   return sortedArr.join(',');
+// }
+
+// console.log(solve(str.join(',')));
+
+
+
+// // 65. задача WG
+
+// function solve(input) {
+//   if (input === 1) {
+//     return 2;
+//   }
+//   if (input === 2) {
+//     return -1;
+//   }
+
+//   let count = 3;
+//   while (count + 3 <= input) {
+//     count = count * 2;
+//   }
+
+//   let count2 = 1;
+//   while (count2 < input) {
+//     count2 = count2 * 2;
+//   }
+
+//   return count2 - 1 === input ? count2 : count === input ? count : -1;
+
+// }
+// const fs = require('fs')
+// const input = fs.readFileSync(0, 'utf-8')
+// console.log(solve(input));
+// console.log(solve(2));
+// console.log(solve(3));
+// console.log(solve(15));
+// console.log(solve(31));
+// console.log(solve(63));
+// console.log(solve(12));
+// console.log(solve(6));
