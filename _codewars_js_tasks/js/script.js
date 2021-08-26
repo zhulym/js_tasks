@@ -1370,9 +1370,8 @@
 
 
 
-// // 64. На входе набор цифр (1,15,4,2,1,48,65,1,2,3,7,12,15) отсортировать до вида
-// //      (1,3-5,6,7,8-15)
-
+// // // 64. На входе набор цифр (1,15,4,2,1,48,65,1,2,3,7,12,15) отсортировать до вида
+// // //      (1,3-5,6,7,8-15)
 
 // let str = [];
 // while (str.length < 99) {
@@ -1395,9 +1394,13 @@
 //       sortedArr.push(uniqArr[i]);
 //     }
 
-//     if (+uniqArr[i] === +uniqArr[i + 1] - 1) {
+//     if (+uniqArr[i] === +uniqArr[i + 1] - 1 && +uniqArr[i] !== +uniqArr[i + 2] - 2) {
+//       sortedArr.push(uniqArr[i]);
+//     }
+
+//     if (+uniqArr[i] === +uniqArr[i + 2] - 2) {
 //       tempArr.push(uniqArr[i]);
-//       for (let j = i + 1; j < uniqArr.length; j++) {
+//       for (let j = i + 2; j < uniqArr.length; j++) {
 //         if (+uniqArr[j] !== +uniqArr[j + 1] - 1) {
 //           tempArr.push(uniqArr[j]);
 //           tempArr.push(j);
@@ -1414,6 +1417,13 @@
 // }
 
 // console.log(solve(str.join(',')));
+// console.log(solve('1,3,1,4,5'));
+// console.log(solve('105,104,949,45,12,18,17,10,950,16,18,7,46,47'));
+// console.log(solve('1,2,4,5,6,9,10'));
+// console.log(solve('20,12,2,7,5,6,3,9,11,2'));  // 2-3,5-7,9,11-12,20
+// console.log(solve('1,2,68,2,3,10,6,7,9,11,69,5,9,13,14,95,8,3,2,7,11,14,18,1,2,4')); // 1-7,9,11,13-14,18,22,68,95,104
+// console.log(solve('948,105,104,949,45,12,18,17,10,950,0,16,18,7'));  //  7,10,12,16-18,45,104-105,948-950
+// // у меня всё работает, по вашему тесту 1/10
 
 
 
@@ -1437,16 +1447,86 @@
 //     count2 = count2 * 2;
 //   }
 
-//   return count2 - 1 === input ? count2 : count === input ? count : -1;
-
+//   return (count2 - 1 === input && count === input) ? `${count}\n${count2}`
+//     : count === input ? count
+//       : count2 - 1 === input ? count2
+//         : -1;
 // }
-// const fs = require('fs')
-// const input = fs.readFileSync(0, 'utf-8')
-// console.log(solve(input));
-// console.log(solve(2));
+
 // console.log(solve(3));
-// console.log(solve(15));
-// console.log(solve(31));
-// console.log(solve(63));
-// console.log(solve(12));
-// console.log(solve(6));
+
+
+
+// // 66. 
+// class Templater {
+//   constructor() {
+//     this.html = [];
+//   }
+//   div(text, attr) {
+//     if (typeof attr === 'object') {
+//       let objectValues = Object.entries(attr);
+//       this.html.push((`<div ${objectValues.reverse().map(item => `${item[0]}="${item[1]}"`)}>${text}</div>`).replace(/,/ig, ' '));
+//       return (`<div ${objectValues.reverse().map(item => `${item[0]}="${item[1]}"`)}>${text}</div>`).replace(/,/ig, ' ');
+//     }
+
+//     if (text) {
+//       this.html.push(`<div>${text}</div>`);
+//       return `<div>${text}</div>`;
+//     } else {
+//       this.html.push('<div></div>');
+//       return '<div></div>';
+//     }
+//   }
+
+//   span(text, attr) {
+//     if (typeof attr === 'object') {
+//       let objectValues = Object.entries(attr);
+//       this.html.push((`<span ${objectValues.reverse().map(item => `${item[0]}="${item[1]}"`)}>${text}</span>`).replace(/,/ig, ' '));
+//       return (`<span ${objectValues.reverse().map(item => `${item[0]}="${item[1]}"`)}>${text}</span>`).replace(/,/ig, ' ');
+//     }
+
+//     if (text) {
+//       this.html.push(`<span>${text}</span>`);
+//       return (`<span>${text}</span>`);
+//     } else {
+//       this.html.push('<span></span>');
+//       return '<span></span>';
+//     }
+//   }
+
+//   br(content) {
+//     if (!content) {
+//       this.html.push('<br>');
+//       return '<br>';
+//     } else {
+//       throw "Nested content is not allowed"
+//     }
+//   }
+//   p(text, attr) {
+//     if (typeof attr === 'object') {
+//       let objectValues = Object.entries(attr);
+//       this.html.push((`<p ${objectValues.reverse().map(item => `${item[0]}="${item[1]}"`)}>${text}</p>`).replace(/,/ig, ' '));
+//       return (`<p ${objectValues.reverse().map(item => `${item[0]}="${item[1]}"`)}>${text}</p>`).replace(/,/ig, ' ');
+//     }
+
+//     if (text) {
+//       this.html.push(`<p>${text}</p>`);
+//       return (`<p>${text}</p>`);
+//     } else {
+//       this.html.push('<p></p>');
+//       return '<p></p>';
+//     }
+//   }
+
+//   toString() {
+//     return this.html.join('');
+//   }
+// }
+
+// const template = new Templater();
+// // template.div('hi', { id: "header", class: "m-4 float-right" })
+// template.div(template.p(template.span()), template.p());
+// let template2 = new Templater().div(new Templater().p(), new Templater().p());
+
+// console.log(template2.toString())
+
