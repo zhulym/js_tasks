@@ -1570,6 +1570,218 @@
 // console.log(quickSort([6, 12, 5, 4, 9, 1, 7, 3]));
 
 
+// // 70. Your job is to figure out the index of which vowel is missing from a given string:
+// // A has an index of 0,// E has an index of 1,// I has an index of 2,// O has an index of 3,// U has an index of 4.
+
+// const absentVowel = x => {
+//   const arr = x.split('');
+//   let idx;
+//   switch (true) {
+//     case !arr.includes('a'):
+//       idx = 0;
+//       break;
+//     case !arr.includes('e'):
+//       idx = 1;
+//       break;
+//     case !arr.includes('i'):
+//       idx = 2;
+//       break;
+//     case !arr.includes('o'):
+//       idx = 3;
+//       break;
+//     case !arr.includes('u'):
+//       idx = 4;
+//       break;
+//     default:
+//       break;
+//   }
+//   return idx;
+// }
+
+// console.log(absentVowel("John Doe hs seven red pples under his bsket"))
+// console.log(absentVowel("Bb Smith sent us six neatly arranged range bicycles"))
 
 
 
+// // 71. 
+// const isIsogram = str => {
+//   let tempArr = [];
+//   str.toLowerCase().split('').forEach(el => !tempArr.includes(el) ? tempArr.push(el) : null);
+//   return (tempArr.length === str.split('').length || tempArr.length === 0) ? true : false;
+// }
+
+// console.log(isIsogram("Dermatoglyphics"));
+// console.log(isIsogram("aba"));
+// console.log(isIsogram("moOse"));
+
+
+
+
+// // 72. Digits explosion Given a string made of digits [0-9], return a string where each digit is repeated a number of times equals to its value.
+
+// const explode = s => {
+//   let arr = s.split('').map(el => {
+//     if (el === '0') return '';
+//     let newNum = el;
+//     while (el.length < +newNum) {
+//       el = el + newNum;
+//     }
+//     return el;
+//   });
+//   return arr.join('');
+// }
+
+// console.log(explode('102269'));  // 12222666666999999999
+
+// // 73. 
+// function getParticipants(handshakes) {
+//   // ...(farm - 1) + (farm - 2) + farm - 3)....
+//   // handshakes = (farm * (farm - 1))/2;
+//   // handshakes*2 = farm * farm - farm
+//   // farm * farm - farm - handshakes*2 = 0
+//   // ax2 + bx + c = 0
+//   // x = (-b + sqrt(D)) / 2a
+//   // D = b2 - 4ac
+//   switch (handshakes) {
+//     case 0:
+//       return 1;
+//     case 1:
+//       return 2;
+//     case 2:
+//     case 3:
+//       return 3;
+//     default:
+//       let D = Math.pow(-1, 2) - (4 * 1 * (-handshakes * 2));
+//       return Math.round((-(-1) + Math.sqrt(D)) / 2 * 1);
+//   }
+// }
+
+// console.log(getParticipants(7));
+
+
+// // 74. Есть строка и число, разбить строку на части длиной в заданное число и проверить
+// // если сумма кубов одной части кратна 2 то перевернуть эту подстроку иначе первый символ перекинуть
+// // в конецб собрать строку обратно и вывети
+
+// function revrot(str, sz) {
+//   if (str.length < sz || sz <= 0) return '';
+//   let subStrings = [];
+//   while (str.length >= sz) {
+//     subStrings.push(str.slice(0, sz));
+//     str = str.slice(sz);
+//   }
+//   let subNumbers = subStrings.map(el => el.split('').reduce((acc, a) => {
+//     return acc + Math.pow(a, 3);
+//   }, 0));
+
+//   for (let i = 0; i < subStrings.length; i++) {
+//     if (subNumbers[i] % 2 === 0) {
+//       subStrings[i] = subStrings[i].split('').reverse().join('');
+//     } else {
+//       subStrings[i] = subStrings[i].slice(1) + subStrings[i][0];
+//     }
+//   }
+
+//   return subStrings.join('');
+// }
+// console.log(revrot("733049910872815764", 5))
+
+
+
+// //75. Посчитать сумму всех чисел кратных 3 или 5 вплоть до заданного числа
+// const solution = n => {
+//   let getAllNum = [];
+//   for (let i = 3; i < n; i++) {
+//     if (Number.isInteger(i / 3) && Number.isInteger(i / 5)) {
+//       getAllNum.push(i);
+//     } else {
+//       if (Number.isInteger(i / 3) || Number.isInteger(i / 5)) {
+//         getAllNum.push(i);
+//       }
+//     }
+//   }
+//   if (getAllNum.length === 0) return 0;
+
+//   return n ? getAllNum.reduce((acc, el) => acc + el) : 0;
+// }
+
+// console.log(solution(0))
+
+
+
+// // 76. Head, Tail, Init and Last
+
+// const head = array => array[0];
+// const tail = array => array.slice(1);
+// const init = array => array.slice(0, array.length - 1);
+// const last = array => array[array.length - 1];
+
+// console.log(head([1, 2, 3, 4, 5]));
+// console.log(tail([1, 2, 3, 4, 5]));
+// console.log(init([1, 2, 3, 4, 5]));
+// console.log(last([1, 2, 3, 4, 5]));
+
+
+
+// //77.
+// const deepCount = a => {
+//   let counter = 0;
+//   for (let i = 0; i < a.length; i++) {
+//     if (typeof a[i] === "object") {
+//       counter += deepCount(a[i]);
+//     }
+//     counter++;
+//   }
+//   return counter;
+// }
+
+// console.log(deepCount(["x", "y", ["z"]]))
+
+// //================альтернативное решение
+// // function deepCount(a){
+// //   return a.reduce((s,e)=>s+(Array.isArray(e)?deepCount(e):0),a.length);
+// // }
+
+
+
+
+// // 78. Valid string
+// let validWord = (dictionary, word) => {
+//   let steps = 0;
+//   let newWord1 = word;
+//   let newWord2 = word;
+//   for (let i = 0; i <= dictionary.length; i++) {
+//     if (newWord1.length === 0) return true;
+//     newWord1 = newWord1.replace(dictionary[i], '');
+//     if (i === dictionary.length) {
+//       i = -1;
+//       steps++;
+//     }
+//     if (steps === 2) {
+//       steps = 0;
+//       for (let i = dictionary.length - 1; i >= 0; i--) {
+//         if (newWord2.length === 0) return true;
+//         newWord2 = newWord2.replace(dictionary[i], '');
+//         if (i === 0) {
+//           i = dictionary.length;
+//           steps++;
+//         }
+//         if (steps === 2) return false;
+//       }
+//     };
+//   }
+
+//   return false;
+// };
+
+// console.log(validWord(['ab', 'a', 'bc'], 'abc'))
+
+
+// // ========= the best way
+// let validWord = function (dictionary, word) {
+//   let str = dictionary.join('|');
+//   let reg = new RegExp('^(' + str + ')+$');
+//   return reg.test(word);
+// };
+
+// console.log(validWord(['ab', 'a', 'bc'], 'abc'))
