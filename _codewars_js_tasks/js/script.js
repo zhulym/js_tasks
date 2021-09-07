@@ -1785,3 +1785,86 @@
 // };
 
 // console.log(validWord(['ab', 'a', 'bc'], 'abc'))
+
+
+
+
+// // 79. 6kyu - Vasya-Clerk
+
+// function tickets(line) {
+//   let counter25 = 0;
+//   let counter50 = 0;
+//   for (let i = 0; i < line.length; i++) {
+//     switch (true) {
+//       case line[i] === 25:
+//         counter25++;
+//         break;
+//       case line[i] === 50:
+//         counter50++;
+//         counter25--;
+//         break;
+//       case counter50 && counter25:
+//         counter50 -= 50;
+//         counter25 -= 25;
+//         break;
+//       default:
+//         counter50 ? counter50-- : counter25 -= 2;
+//         counter25--;
+//         break;
+//     }
+//     if (counter25 < 0) return 'NO';
+//   }
+//   return 'YES';
+// }
+//console.log(tickets([25, 25, 25, 25, 50, 100, 50]));
+
+
+
+// // // 80. Sorting by bits
+
+// function sortByBit(arr) {
+//   let newArr = arr.sort((fel, sel) => {
+//     let a = fel.toString(2).replace(/0/g, '').length;
+//     let b = sel.toString(2).replace(/0/g, '').length;
+//     if (a === b) {
+//       return fel - sel;
+//     }
+//     return a - b;
+//   })
+//   return newArr;
+// }
+// console.log(sortByBit([3, 8, 3, 6, 5, 7, 9, 1]))
+
+
+
+
+// // 81. https://www.codewars.com/kata/the-coupon-code
+// function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
+//   if (+enteredCode === +correctCode) return true;
+//   let date1 = Date.parse(currentDate);
+//   let date2 = Date.parse(expirationDate);
+//   if (date1 < date2) return true;
+//   return false
+// }
+
+// console.log(checkCoupon('123a', '123', 'September 5, 2014', 'October 1, 2014'))
+
+
+
+// // 82. https://www.codewars.com/kata/unlucky-days
+// const unluckyDays = year => {
+//   let amount = 0;
+//   for (let i = 1; i <= 12; i++) {
+//     let d = new Date(i + "/13/" + year);
+//     if (d.getDay() == 5) {
+//       amount++;
+//     }
+//   }
+//   return amount;
+// }
+
+// unluckyDays(2021)
+
+
+
+// 83. https://www.codewars.com/kata/human-readable-duration-format
