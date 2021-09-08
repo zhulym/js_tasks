@@ -1867,4 +1867,36 @@
 
 
 
-// 83. https://www.codewars.com/kata/human-readable-duration-format
+// // 83. https://www.codewars.com/kata/human-readable-duration-format
+
+// const formatDuration = seconds => {
+//   if (seconds === 0) return "now";
+
+//   let result = '';
+//   let years = Math.floor(seconds / 31536000) || 0;
+//   let days = Math.floor((seconds - years * 31536000) / 86400) || 0;
+//   let hours = Math.floor((seconds - (years * 31536000 + days * 86400)) / 3600) || 0;
+//   let minutes = Math.floor((seconds - (years * 31536000 + days * 86400 + hours * 3600)) / 60) || 0;
+//   let sec = seconds - (years * 31536000 + days * 86400 + hours * 3600 + minutes * 60);
+
+//   let arrTimes = [years, days, hours, minutes, sec];
+
+//   let examples = {
+//     year: `${years} ${years === 1 ? 'year' : 'years'}`,
+//     day: `${days} ${days === 1 ? 'day' : 'days'}`,
+//     hour: `${hours} ${hours === 1 ? 'hour' : 'hours'}`,
+//     minute: `${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`,
+//     second: `${sec} ${sec === 1 ? 'second' : 'seconds'}`,
+//   }
+
+//   let examplesKeys = Object.keys(examples);
+//   arrTimes.forEach((el, i) => el ? result += `${examples[examplesKeys[i]]}, ` : null);
+//   // манипуляции с приведением к добротному виду
+//   result = result.slice(0, result.length - 2);
+//   if (arrTimes.filter(el => el !== 0).length === 1) return result;
+
+//   let lastIndex = result.lastIndexOf(',');
+//   result = result.slice(0, lastIndex) + ' and ' + result.slice(lastIndex + 2, result.length);
+
+//   return result;
+// }
