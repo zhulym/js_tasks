@@ -1900,3 +1900,99 @@
 
 //   return result;
 // }
+
+
+
+
+// // 83. Вывести названия языков в массииве если результат > 60 в порядке убывания
+// const myLanguages = res => {
+//   let resArr = [];
+//   for (const key in res) {
+//     res[key] >= 60 ? resArr.push(key) : null;
+//   }
+//   return resArr.sort((a, b) => res[a] - res[b]).reverse();
+// }
+
+// console.log(myLanguages({ "Java": 10, "Ruby": 80, "Python": 65 }))
+// console.log(myLanguages({ "Hindi": 60, "Dutch": 93, "Greek": 71 }))
+
+
+// // 84. преобразовать строку к виду runLengthEncoding
+// //    ("hello world!")
+// //    [[1,'h'], [1,'e'], [2,'l'], [1,'o'], [1,' '], [1,'w'], [1,'o'], [1,'r'], [1,'l'], [1,'d'], [1,'!']]
+
+// const runLengthEncoding = str => {
+//   let result = [];
+//   let arr = str.split('');
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === arr[i + 1]) {
+//       let firstIdx = i;
+//       let secondIdx;
+//       for (let j = firstIdx; j < arr.length; j++) {
+//         if (arr[j] !== arr[j + 1]) {
+//           secondIdx = j;
+//           result.push([(secondIdx - firstIdx) + 1, `${arr[i]}`]);
+//           i = j;
+//           break;
+//         }
+//       }
+//     } else {
+//       result.push([1, `${arr[i]}`]);
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(runLengthEncoding("WWWBWWWWBBWWWBBB! BMW"))
+
+
+// // 85. 
+// class WordDictionary {
+//   constructor() {
+//     this.storage = [];
+//   }
+// };
+
+// WordDictionary.prototype.addWord = function (word) {
+//   this.storage.push(word);
+// };
+
+// WordDictionary.prototype.search = function (word) {
+//   const regexp = new RegExp(`^${word}$`);
+//   return this.storage.some(el => {
+//     if (regexp.test(el)) {
+//       return el;
+//     }
+//   });
+// };
+
+
+
+// //86. 
+
+// class Node {
+//   constructor(data, next = null) {
+//     this.data = data;
+//     this.next = next;
+//   }
+// }
+
+// function stringify(list) {
+//   if (list === null) return 'null';
+//   return `${list.data} -> ${stringify(list.next)}`;
+// }
+
+// console.log(stringify(new Node(0, new Node(1, new Node(4, new Node(9, new Node(16)))))));
+
+
+// //87 var TreeNode = function(value, left, right) {
+// // this.value = value;
+// // this.left = left;
+// // this.right = right;
+// // };
+
+// function arrayToTree(array, i = 0) {
+//   if (i >= array.length) return;
+//   return new TreeNode(array[i], arrayToTree(array, 2 * i + 1), arrayToTree(array, 2 * i + 2));
+// };
+
