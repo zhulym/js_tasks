@@ -1996,3 +1996,237 @@
 //   return new TreeNode(array[i], arrayToTree(array, 2 * i + 1), arrayToTree(array, 2 * i + 2));
 // };
 
+
+// // 88. Promise
+
+// let myPromise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log('Запрос сервер')
+//     console.log('...')
+//     resolve();
+//   }, 1000);
+// });
+
+// myPromise.then(() => {
+//   return new Promise((resolve, reject) => {
+//     let users = [
+//       { id: 1, name: "Dan" },
+//       { id: 2, name: "John" },
+//     ]
+//     setTimeout(() => {
+//       console.log('Запрос сервер -> BD')
+//       console.log('...')
+//       resolve(users);
+//     }, 1000);
+//   })
+// })
+//   .then(usersBD => {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//         console.log('Preparing answer');
+//         console.log('...');
+//         resolve(users);
+//       }, 1000);
+//       let users = usersBD.map(el => {
+//         return {
+//           userId: el.id,
+//           userName: el.name,
+//           timestamp: Date.now()
+//         }
+//       })
+//     })
+//   })
+//   .then(users => {
+//     setTimeout(() => {
+//       console.log('Answer -> client')
+//       console.log('...', users)
+//     }, 1000);
+//   })
+//   .catch(error => console.error(error))
+//   .finally(() => console.log('Finish'));
+
+
+
+// // TEST JS SCOPE && FUNCTIONS
+// =========================================================================================
+// for (let i = 0; i < 3; i++) {
+//   setTimeout(function () {
+//     console.log(i)
+//   }, 1000)
+// }
+//                               // 0,1,2
+// =========================================================================================
+// var name = 'J';
+// function p() {
+//   console.log(name);
+//   var name = 'P';
+//   console.log(name);
+// }
+// p();                       // undef - p
+// =========================================================================================
+// function foo(a, b) {
+//   return a * b;
+// }
+// const bar = foo.bind(null, 2);
+// console.log(bar(2))         // 4
+// =========================================================================================
+// const foo = bar();
+// const number = 2;
+// function bar() {
+//   return number;
+// }                            // ReferenceError: number is not defined
+// =========================================================================================
+// var a = 1;
+// var b = function a(x) {
+//   x && a(--x);
+// }
+// console.log(a);                    // 1
+// =========================================================================================
+// function foo() {
+//   console.log(this);
+// }
+// foo.call(null);                    //window
+// =========================================================================================
+// for (var i = 0; i < 3; i++) {
+//   setTimeout(function () {
+//     console.log(i)
+//   }, 1000)
+// }                                //  3   3   3
+// =========================================================================================
+// Что такое замыкание?
+// 4 Способность функции запоминать переменные из внешней области видимости в момент ее создания
+// =========================================================================================
+// function getThis() {
+//   return this;
+// }
+// console.log(getThis());           // window
+// =========================================================================================
+// const details = {
+//   name: "John"
+// }
+// function getMessage(message) {
+//   return `${message} ${this.name}`
+// }
+// console.log(getMessage.apply(details, ['Hello']));  // Hello John
+// =========================================================================================
+// "use strict"
+// function getThis() {
+//   return this;
+// }
+// console.log(getThis());      // undefined
+// =========================================================================================
+// function foo() {
+//   return { bar: 1 };
+// }
+// console.log(typeof foo().bar);       // number
+// =========================================================================================
+// (
+//   function (a) {
+//     arguments[0] = 10;
+//     return a;
+//   }
+// )(5);
+//                                  //10
+// console.log((
+//   function (a) {
+//     arguments[0] = 10;
+//     return a;
+//   }
+// )(5));
+// =========================================================================================
+// "use strict"
+// const details = {
+//   message: 'Hello'
+// }
+// function getMessage() {
+//   return this.message;
+// }
+// console.log(getMessage.call(details))       // Hello
+// =========================================================================================
+// Каким образом осуществляется передача параметров в функцию?
+// 3 Примитивы передаются по значению, а объекты - по ссылке
+// =========================================================================================
+// !!!!!Какие варианты правильно объявляют функцию f, возвращающую сумму двух аргументов? 100% верно
+// 1,2,3,4
+// // let f = function (a, b) { return a + b };      //++++++++++
+// // let f = new Function("a,b", "return a+b");     //+++++++
+// // let f = new Function("a", "b", "return a+b");  // +++++++
+// // let f = (a, b) => a + b;                       //+++++++
+// // let f = (a, b) => { a + b };                   //-----------
+// console.log(f(1, 1))
+// =========================================================================================
+// console.log(message);
+// var message = 'Hello';         // undef
+// =========================================================================================
+// Укажите, что в JavaScript подвергается всплытию (hoisting)?
+// 2,5
+// --- Function expression
+// +++ Function declaration
+// --- Arrow function
+// +++ Объявление переменной
+// --- Присваивание значения переменной
+// =========================================================================================
+// let name = 'John';
+// function printName() {
+//   let name = 'Peter';
+//   console.log(name);
+// }
+// printName();                 // Peter
+// =========================================================================================
+// var name = 'John';
+// var user = {
+//   name: 'Peter',
+//   printMessage() {
+//     console.log(`Hello, ${this.name}`)
+//   }
+// }
+// var printMessage = user.printMessage;
+// printMessage();                     // 'Hello John'
+// =========================================================================================
+// let f = function g() {
+//   return 23;
+// }
+// console.log(typeof g());             // ошибка
+// =========================================================================================
+// printMessage();
+// function printMessage() {
+//   console.log('Hello');             // Hello
+// }
+// =========================================================================================
+// for (var i = 0; i < 10; i++) {
+//   //...
+// }
+// console.log(i)                     // 10
+// =========================================================================================
+// console.log(message);
+// let message = 'Hello';                 // ошибка
+// =========================================================================================
+// let name = 'John';
+// function printName() {
+//   console.log(name);
+// }
+// setTimeout(() => {
+//   let name = 'Peter';
+//   printName();
+// }, 1000)                      // John
+// =========================================================================================
+// // Укажите правильный способ получения доступа ко всем аргументам функции
+// function foo(a) {
+//   console.log(arguments);
+// }
+// foo(5);
+
+
+let qwert = document.querySelectorAll('.qwert');
+let qwert3 = document.getElementsByName('up');
+let qwert4 = document.getElementsByTagName('TD');
+
+
+
+console.log(qwert4[0].rows)
+console.log(qwert3)
+console.log(document.querySelectorAll('div')[0])
+
+
+
+
