@@ -171,3 +171,48 @@
 // Array.prototype.odd = function () {
 //   return this.filter(num => num % 2 !== 0);
 // }
+
+
+
+// //6 kyu - I Promise Not To Optimize
+// function antiOptimizeAsync(task) {
+//   return Promise.all([
+//     new Promise(resolve => process.nextTick(() => resolve(task()))),
+//     new Promise(resolve => setTimeout(resolve, 11000)),
+//   ]).then(([result]) => result)
+// }
+
+// function antiOptimizeAsync(task) {
+//   return new Promise(resolve => {
+//     let firstStamp = new Date();
+//     let result = task();
+//     let time = new Date() - firstStamp;
+//     setTimeout(resolve, 10500 - time, result);
+//   })
+// };
+
+
+
+// //6 kyu - Jokes you've been 'awaiting' for ... promise
+// async function sayJoke(apiUrl, jokeId) {
+//   const response = await fetch(apiUrl);
+//   const data = await response.json();
+//   if (!data.hasOwnProperty('jokes')) throw new Error(`No jokes at url: ${apiUrl}`);
+//   let joke = data.jokes.find(joke => joke.id === jokeId);
+//   if (!joke) throw new Error(`No jokes found id: ${jokeId}`);
+//   return {
+//     saySetup: () => joke.setup,
+//     sayPunchLine: () => joke.punchLine,
+//   }
+// }
+
+
+
+// // 7 kyu https://www.codewars.com/kata/santaclausable-interface
+// function isSantaClausable(obj) {
+//   if (typeof obj.distributeGifts === 'function' || typeof obj.goDownTheChimney === 'function') {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
