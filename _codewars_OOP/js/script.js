@@ -216,3 +216,48 @@
 //     return false;
 //   }
 // }
+
+
+
+// //4 kyu - Dependency Injection Также, чтобы настроить DependencyInjector(DI), нам нужно указать объект зависимости:
+// // let DI = function (dependency) {
+// //   this.dependency = dependency;
+// // };
+
+// // задача - создать метод DI.prototype.inject, который вернет новую функцию с разрешенными зависимостями.И не забывайте о вложенных функциях.Не трогай их.
+
+// let DI = function (dependency) {
+//   this.dependency = dependency;
+// };
+
+// DI.prototype.inject = function (func) {
+//   if (func.length > 0) {
+//     debugger
+//     let funcString = func.toString();
+//     let parameters = funcString.slice(funcString.indexOf('(') + 1, funcString.indexOf(')')).split(',');
+//     parameters.forEach(string => {
+//       string = string.trim();
+//       func = func.bind(this, this.dependency[string]);
+//     });
+//   }
+//   return func;
+// }
+
+// let deps = {
+//   'dep1': function () { return 'this is dep1'; },
+//   'dep2': function () { return 'this is dep2'; },
+//   'dep3': function () { return 'this is dep3'; },
+//   'dep4': function () { return 'this is dep4'; }
+// };
+
+// let di = new DI(deps);
+
+// let myFunc = di.inject(function (dep3, dep1, dep2) {
+//   return [dep1(), dep2(), dep3()].join(' -> ');
+// });
+// console.log(myFunc())
+
+
+
+// 4 kyu - Undo/Redo
+

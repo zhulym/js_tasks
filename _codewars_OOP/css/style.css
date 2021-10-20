@@ -6,11 +6,6 @@ html, body {
     position: relative;
 }
 
-html {
-    width: 50%;
-    background-color: lawngreen;
-}
-
 .span-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
