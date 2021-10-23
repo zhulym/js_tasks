@@ -259,5 +259,166 @@
 
 
 
-// 4 kyu - Undo/Redo
+// // 7 kyu - PatternCraft - Adapter
+// class MarioAdapter {
+//   constructor(mario) {
+//     this.mario = mario;
+//   }
 
+//   attack(target) {
+//     this.mario.jumpAttack();
+//     target.health -= 3;
+//   }
+// }
+
+// // 7 kyu - PatternCraft - Visitor
+// class Marine {
+//   constructor(health = 100) {
+//     this.health = health;
+//   }
+//   accept(visitor) {
+//     visitor.visitLight(this);
+//   }
+// }
+
+// class Marauder {
+//   constructor(health = 125) {
+//     this.health = health;
+//   }
+//   accept(visitor) {
+//     visitor.visitArmored(this);
+//   }
+// }
+
+// class TankBullet {
+//   visitLight(unit) {
+//     unit.health -= 21;
+//   }
+//   visitArmored(unit) {
+//     unit.health -= 32;
+//   }
+// }
+
+
+
+// // 6 kyu - PatternCraft - State
+// class SiegeState {
+//   constructor() {
+//     this.move = false;
+//     this.damage = 20;
+//   }
+// }
+
+// class TankState {
+//   constructor() {
+//     this.move = true;
+//     this.damage = 5;
+//   }
+// }
+
+// class Tank {
+//   constructor() {
+//     this.state = new TankState();
+//   }
+
+//   get canMove() {
+//     return this.state.move;
+//   }
+//   get damage() {
+//     return this.state.damage;
+//   }
+// }
+
+
+// //6 kyu - PatternCraft - Strategy
+// class Fly {
+//   move(unit) {
+//     return unit.position += 10;
+//   }
+// }
+
+// class Walk {
+//   move(unit) {
+//     return unit.position += 1;
+//   }
+// }
+
+// class Viking {
+//   constructor() {
+//     this.moveBehavior = new Walk();
+//     this.position = 0;
+//   }
+
+//   move() {
+//     return this.moveBehavior.move(this);
+//   }
+// }
+
+
+
+// // 6 kyu http://www.codewars.com/kata/patterncraft-decorator/
+// class Marine {
+//   constructor(_damage, _armor) {
+//     this._damage = _damage;
+//     this._armor = _armor
+//   }
+
+//   get damage() { return this._damage; }
+//   set damage(value) { this._damage = value }
+
+//   get armor() { return this._armor; }
+//   set armor(value) { this._armor = value }
+// }
+
+// class MarineWeaponUpgrade {
+//   constructor(marine) {
+//     this.marine = marine
+//   }
+
+//   get damage() { return this.marine.damage + 1; }
+//   set damage(value) { this.marine.damage = value }
+
+//   get armor() { return this.marine.armor; }
+//   set armor(value) { this.marine.armor = value }
+// }
+
+// class MarineArmorUpgrade {
+//   constructor(marine) {
+//     this.marine = marine
+//   }
+
+//   get damage() { return this.marine.damage; }
+//   set damage(value) { this.marine.damage = value }
+
+//   get armor() { return this.marine.armor + 1; }
+//   set armor(value) { this.marine.armor = value }
+// }
+
+
+
+
+// // 6 kyu https://www.codewars.com/kata/extract-nested-object-reference
+// Object.prototype.hash = function (string) {
+//   try {
+//     return eval(`this.${string}`);
+//   } catch (e) {
+//     return undefined;
+//   }
+// };
+
+
+
+// // 6 kyu https://www.codewars.com/kata/image-host-filename-generator
+// function generateName() {
+//   let string = "";
+//   let stringLength = 6;
+//   let symbols = `0123456789
+//     abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_ !
+//     @#$%^&*_(),.?|{}[]-=+\\/`;
+
+//   for (let i = 0; i < stringLength; i++) {
+//     string += symbols[Math.random() * symbols.length]
+//   }
+//   if (!photoManager.nameExists(string)) return string;
+//   return generateName();
+// }
