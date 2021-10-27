@@ -2217,16 +2217,22 @@
 // foo(5);
 
 
-let qwert = document.querySelectorAll('.qwert');
-let qwert3 = document.getElementsByName('up');
-let qwert4 = document.getElementsByTagName('TD');
 
 
+// // // 90. Вывести самое короткое слово в строке 2 вар
+// function short(str) {
+//   let temp = '';
+//   str.split(' ').forEach((el, i) => {
+//     if (i === 0) temp = el;
+//     if (el.length < temp.length) temp = el;
+//   });
+//   return temp;
+// }
 
-console.log(qwert4[0].rows)
-console.log(qwert3)
-console.log(document.querySelectorAll('div')[0])
+// function short2(str) {
+//   return str.split(' ').sort((a, b) => a.length - b.length)[0];
+// }
 
-
-
+// console.log(short('The asffa sdafsdf if it'))
+// console.log(short2('The asffa sdafsdf if it'))
 
