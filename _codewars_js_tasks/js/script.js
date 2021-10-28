@@ -2218,7 +2218,7 @@
 
 
 
-
+//Задачи с собеседований
 // // // 90. Вывести самое короткое слово в строке 2 вар
 // function short(str) {
 //   let temp = '';
@@ -2236,3 +2236,26 @@
 // console.log(short('The asffa sdafsdf if it'))
 // console.log(short2('The asffa sdafsdf if it'))
 
+
+// // // // 90. Принять имя вернуть инициалы Ф.Е.
+
+// function nameInit(name) {
+//   return name.split(' ').map(el => `${el.charAt(0).toUpperCase()}.`).join('');
+// }
+// console.log(nameInit('The asffa'))
+
+
+
+// // // // 91. Сумма всех чисел 
+// function countNum(num) {
+//   return Math.abs(num).toString().split('').reduce((acc, el) => +acc + +el, 0);
+// }
+// console.log(countNum(-55))
+
+
+
+// // // // // 92. Найти и вывести максимальное и минимальное значения в массиве 
+// function findMinMax(arr) {
+//   return [Math.max(...arr), Math.min(...arr)];
+// }
+// console.log(findMinMax([5, 8, 3, 1, 9, 7]));
