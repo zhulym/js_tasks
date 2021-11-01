@@ -2259,3 +2259,17 @@
 //   return [Math.max(...arr), Math.min(...arr)];
 // }
 // console.log(findMinMax([5, 8, 3, 1, 9, 7]));
+
+
+// // 93. Написать ф-цию inc() которая при каждом вызове возвр. 1, 2 3 ....
+// // условие: в глобальном скоупе не должно быть других переменных
+
+// let inc = (function () {
+//   let c = 0;
+//   return function inc() {
+//     return ++c;
+//   }
+// })();
+
+// console.log(inc())
+// console.log(inc())
