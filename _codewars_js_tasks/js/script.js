@@ -2273,3 +2273,29 @@
 
 // console.log(inc())
 // console.log(inc())
+
+
+
+// // 94. Написать ф-цию сортировки массива по количеству (сначала больше встречающиеся), сделать новый массив уникальных значений 
+// let fruits = ['banana', 'orange', 'banana', 'lemon', 'lemon', 'banana']
+
+// function sort(arr) {
+//   // вар 1 получаем объект уникальных с кол-вом
+//   let tempObj = arr.reduce((acc, el) => {
+//     acc[el] = (acc[el] || 0) + 1;
+//     return acc;
+//   }, {})
+//   // вар 2 получаем объект уникальных с кол-вом
+//   // let tempObj = {};
+//   // arr.forEach((el, i) => {
+//   //   if (fruits.indexOf(el) === i) tempObj[el] = 1;
+//   //   else {
+//   //     for (let prop in tempObj) if (prop === el) tempObj[el]++;
+//   //   }
+//   // })
+//   console.log(tempObj)
+//   return Object.keys(tempObj).sort((a, b) => tempObj[b] - tempObj[a]);
+// }
+
+// console.log(sort(fruits));
+
