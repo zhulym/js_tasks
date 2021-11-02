@@ -2135,3 +2135,49 @@
 // }
 
 // console.log(multipleTwo(1, 2, 3, 4, 5, 6, 7));
+
+
+
+// // 96. Написать ф-цию, чтобы можно было вызвать так sum(3)(4)
+// //вар 1 
+// let sum = a => b => a + b;
+
+// // //вар 2
+// // function sum(a) {
+// //   return function (b) {
+// //     return a + b;
+// //   }
+// // }
+
+// console.log(sum(3)(4))
+
+
+
+// // // 97. Написать ф-цию, чтобы можно было вызвать с любым кол-вом арг. sum(3)(4)(10)(1)();
+// // ф-ция заканчивается последним вызовом пустых скобок
+
+// function sum(a) {
+//   return function (b) {
+//     if (b) return sum(a + b);
+//     return a;
+//   }
+// }
+
+// console.log(sum(3)(4)(10)(1)());
+
+
+
+// // // 98. Есть ф-ция, написать ф-цию calculate, в которую можно передать в calculate
+
+// let sum = (a, b) => a + b;
+// let mult = (a, b) => a * b;
+
+// function calculate(cb) {
+//   return function (a) {
+//     return function (b) {
+//       return cb(a, b)
+//     }
+//   }
+// }
+
+// console.log(calculate(sum)(4)(10));
