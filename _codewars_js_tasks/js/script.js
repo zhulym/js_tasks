@@ -2181,3 +2181,34 @@
 // }
 
 // console.log(calculate(sum)(4)(10));
+
+
+
+// // 99. we have two arrays, need return new array that includes the same num in two aarays
+
+// const a1 = [1, 2, 3, 4]
+// const a2 = [3, 4, 5, 6]
+
+// function findTheSame(arr1, arr2) {
+//   return a1.filter(el => a2.includes(el))
+// }
+// console.log(findTheSame(a1, a2))
+
+
+
+// // 100. Function has to return true if array  has two nums that equal b1
+
+// const a1 = [1, 2, 3, 4], b1 = 3;
+// const a2 = [3, 4, 5, 6], b2 = 20;
+
+// function checkArr(arr, num) {
+//   let flag = false;
+//   arr.forEach(el => {
+//     for (let j = 0; j < arr.length; j++) {
+//       if (el + arr[j + 1] === num) flag = true;
+//     }
+//   });
+//   return flag;
+// }
+// console.log(checkArr(a1, b1)) // true
+// console.log(checkArr(a2, b2)) // false
