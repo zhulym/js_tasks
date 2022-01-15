@@ -43,3 +43,27 @@
 // }
 // console.log(findShortestWordSecond('The lord of the ring')); // of
 // console.log(findShortestWordSecond('Fallback font will used while loading')); // font
+
+
+
+// // 3. Create function for memoization
+// const memo = (fn) => {
+//   const cache = {};
+//   return function (param) {
+//     if (cache[param]) {
+//       return cache[param];
+//     } else {
+//       const result = fn(param);
+//       cache[param] = result;
+//       return result;
+//     }
+//   }
+// }
+
+// // base function
+// const toUpper = (str = '') => str.toUpperCase();
+// // memoized base function
+// const toUpperMemoized = memo(toUpper);
+
+// console.log(toUpperMemoized('abc'));
+// console.log(toUpperMemoized('abc'));
